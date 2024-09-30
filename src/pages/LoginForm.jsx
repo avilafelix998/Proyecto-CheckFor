@@ -62,25 +62,25 @@ export const LoginForm = () => {
                   className="object-cover w-full h-full"
                 />
                 <motion.div
-                  className="absolute z-30 text-center text-white transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  className="absolute z-30 text-center text-white transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 bg-gray-800 bg-opacity-10 backdrop-blur-sm p-4 rounded"
                   initial={{ opacity: 0, filter: 'blur(10px)' }}
                   animate={{ opacity: 1, filter: 'blur(0)' }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h1 className="text-3xl font-bold">Hello, Friend!</h1>
-                  <p className="text-center">Register with your personal details to use all of site features</p>
+                  <h1 className="text-3xl font-bold">Saludos!</h1>
+                  <p className="text-center">Regístrate para crear tu cuenta y disfrutar de todas las funcionalidades que ofrecemos.</p>
                 </motion.div>
               </>
             ) : (
               <>
                 <motion.div
-                  className="absolute z-30 text-center text-white transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                  className="absolute z-30 text-center text-white transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 bg-gray-800 bg-opacity-10 backdrop-blur-sm p-4 rounded"
                   initial={{ opacity: 0, filter: 'blur(10px)' }}
                   animate={{ opacity: 1, filter: 'blur(0)' }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h1 className="text-3xl font-bold">Welcome Back!</h1>
-                  <p className="text-center">Enter your personal details to use all of site features</p>
+                  <h1 className="text-3xl font-bold">Bienvenido!</h1>
+                  <p className="text-center">Ingresa los datos de tu cuenta para acceder y retomar desde dónde lo dejaste.</p>
                 </motion.div>
                 <video
                   src={containerVid}
@@ -94,16 +94,16 @@ export const LoginForm = () => {
             <div className="absolute z-30 flex items-center p-2 bg-gray-900 rounded bottom-4 left-4 bg-opacity-60">
               <div className="flex flex-col mr-2">
                 {isFlipped ? (
-                  <p className="text-center text-white">Have an account?</p>
+                  <p className="text-center text-white">Ya tienes una cuenta?</p>
                 ) : (
-                  <p className="text-center text-white">Don't have an account?</p>
+                  <p className="text-center text-white">No tienes una cuenta?</p>
                 )}
               </div>
               <button 
                 onClick={handleToggleVideo} 
                 className="px-3 py-1 text-sm text-black bg-white rounded bg-opacity-70 hover:bg-gray-400"
               >
-                {isFlipped ? "Sign In" : "Register"}
+                {isFlipped ? "Acceder" : "Registrarse"}
               </button>
             </div>
           </motion.div>
@@ -113,11 +113,11 @@ export const LoginForm = () => {
             {/* Formulario de registro (izq) */}
             <div className="flex items-center justify-center w-1/2 h-full bg-gray-900 rounded-l-lg opacity-50">
               <div className="flex flex-col items-center text-gray-200">
-                <h1 className="text-3xl font-bold">Register</h1>
+                <h1 className="text-3xl font-bold">Registro</h1>
                 <form className="flex flex-col items-center mt-6 space-y-4">
                   <input
                     type="text"
-                    placeholder="Username"
+                    placeholder="Nombre de Usuario"
                     className="px-4 py-2 text-gray-200 bg-gray-800 rounded"
                   />
                   <input
@@ -127,14 +127,19 @@ export const LoginForm = () => {
                   />
                   <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
+                    className="px-4 py-2 text-gray-200 bg-gray-800 rounded"
+                  />
+                  <input
+                    type="password"
+                    placeholder="Confirmar contraseña"
                     className="px-4 py-2 text-gray-200 bg-gray-800 rounded"
                   />
                   <button 
                     type="button" 
                     className="px-4 py-2 mt-2 font-semibold text-white bg-gray-800 rounded hover:bg-gray-700"
                   >
-                    Register
+                    Enviar
                   </button>
                 </form>
               </div>
@@ -143,7 +148,7 @@ export const LoginForm = () => {
             {/* Formulario de login (der) */}
             <div className="flex items-center justify-center w-1/2 h-full bg-gray-900 rounded-r-lg opacity-50">
               <div className="flex flex-col items-center p-6 text-gray-200">
-                <h1 className="text-3xl font-bold">Login</h1>
+                <h1 className="text-3xl font-bold">Iniciar Sesión</h1>
                 <form className="flex flex-col items-center mt-6 space-y-4">
                   <input
                     type="email"
@@ -152,7 +157,7 @@ export const LoginForm = () => {
                   />
                   <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     className="px-4 py-2 text-gray-200 bg-gray-800 rounded"
                   />
                   <button 
@@ -160,9 +165,12 @@ export const LoginForm = () => {
                     onClick={handleSignIn} 
                     className="px-4 py-2 mt-2 font-semibold text-white bg-gray-800 rounded hover:bg-gray-700"
                   >
-                    Sign In
+                    Acceder
                   </button>
                 </form>
+                <p className="mt-4 text-sm text-gray-400 cursor-pointer hover:text-white">
+                  ¿Olvidaste tu contraseña?
+                </p>
               </div>
             </div>
           </div>
