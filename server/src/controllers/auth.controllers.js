@@ -1,5 +1,5 @@
 import { createJwt } from "../helpers/createJwt.js";
-import { createUser, getUserByCredentials } from "../models/user.model.js";
+// import { createUser, getUserByCredentials } from "../models/user.model.js";
 
 export const signInCtrl = async (req, res) => {
   try {

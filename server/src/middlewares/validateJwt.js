@@ -1,4 +1,4 @@
-import { getUserById } from "../models/user.model.js";
+// import { getUserById } from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 
 // Validate JWT middleware
