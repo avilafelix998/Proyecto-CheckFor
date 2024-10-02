@@ -9,7 +9,7 @@ const App = () => (
     <div className="h-screen overflow-hidden bg-gray-100">
       <Routes>
         <Route path="/login" element={<LoginForm />} />
-        <Route path="*" element={<><Navbar /><Home /></>} />
+        <Route path="/" element={<><Navbar /><Home /></>} />
       </Routes>
     </div>
   </Router>
