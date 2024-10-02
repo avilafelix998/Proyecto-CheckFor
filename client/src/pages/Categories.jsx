@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Navbar } from '../components/Navbar';
 
 export const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -23,17 +24,19 @@ export const Categories = () => {
   }, []);
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Página de Categorías</h1>
-      <ul className="space-y-2">
+    <div className="p-4 justify-between">
+      <Navbar/>
+      <h1 className="text-2xl text-orange-600 font-bold mb-4 text-center">Página de Categorías</h1>
+      <div className="flex flex-wrap m-2 justify-center">
         {categories.map((category) => (
-          <a href={`/test?${category.id_categoria}`} key={category.id_categoria}>
-            <li className="p-2 border rounded shadow">
+          <a href={`/test?${category.id_categoria}`} key={category.id_categoria} className="m-2 w-full sm:w-1/2 md:w-1/3">
+            <div className="p-4 border rounded shadow hover:shadow-lg transition-shadow text-orange-600 font-bold">
               {category.categoria}
-            </li>
+            </div>
           </a>
         ))}
-      </ul>
+      </div>
     </div>
   );
+  
 };
