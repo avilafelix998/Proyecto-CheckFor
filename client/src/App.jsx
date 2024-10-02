@@ -7,7 +7,7 @@ import { Categories } from './pages/Categories.jsx';
 import { TestPage } from './pages/Test.jsx';
 const App = () => (
   <Router>
-    <div className="m-0 min-h-screen bg-black">
+    <div className="h-screen overflow-hidden bg-gray-100">
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route path="/" element={<><Navbar /><Home /></>} />

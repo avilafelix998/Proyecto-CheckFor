@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import '../styles/slider.css';
 import img1 from "../public/img/img1.jpg"; 
 import img2 from "../public/img/img2.jpg"; 
 import img3 from "../public/img/img3.jpg"; 
@@ -59,60 +58,63 @@ export const Slider = () => {
     }, []);
 
     return (
-        <div className="relative w-full overflow-hidden h-96 slider">
-            <AnimatePresence>
-                <motion.div
-                    className="list"
-                    key={currentIndex}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <div className={`item absolute inset-0 transition-opacity duration-500`}>
-                        <img
-                            src={items[currentIndex].imgSrc}
-                            alt={items[currentIndex].title}
-                            className="object-cover w-full h-full"
-                        />
-                        <motion.div
-                            initial={{ y: -100, opacity: 0, filter: 'blur(20px)' }}
-                            animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-                            exit={{ y: -100, opacity: 0, filter: 'blur(20px)' }}
-                            transition={{ duration: 0.5 }}
-                            className="absolute w-1/2 text-left text-white transform -translate-x-0 content top-1/4 left-10 h-1/2"
-                        >
+        //* div envoltorio - no tocar
+        <div className="..."> {/* ajustar con p-2 y bg-black a gusto */}
+            <div className="relative w-full overflow-hidden h-96 slider">
+                <AnimatePresence>
+                    <motion.div
+                        className="list"
+                        key={currentIndex}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <div className={`item absolute inset-0 transition-opacity duration-500`}>
+                            <img
+                                src={items[currentIndex].imgSrc}
+                                alt={items[currentIndex].title}
+                                className="object-cover w-full h-full"
+                            />
                             <motion.div
-                                initial={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
+                                initial={{ y: -100, opacity: 0, filter: 'blur(20px)' }}
                                 animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-                                exit={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
-                                className="text-4xl font-bold title"
+                                exit={{ y: -100, opacity: 0, filter: 'blur(20px)' }}
+                                transition={{ duration: 0.5 }}
+                                className="absolute w-1/2 text-left text-white transform -translate-x-0 content top-1/4 left-10 h-1/2"
                             >
-                                {items[currentIndex].title}
+                                <motion.div
+                                    initial={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
+                                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                                    exit={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                    className="text-4xl font-bold title"
+                                >
+                                    {items[currentIndex].title}
+                                </motion.div>
+                                <motion.div
+                                    initial={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
+                                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                                    exit={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
+                                    transition={{ duration: 0.5, delay: 0.4 }}
+                                    className="text-2xl text-orange-500 type"
+                                >
+                                    {items[currentIndex].type}
+                                </motion.div>
+                                <motion.div
+                                    initial={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
+                                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                                    exit={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
+                                    transition={{ duration: 0.5, delay: 0.6 }}
+                                    className="hidden mt-4 description md:block" // hidden en pantallas móviles
+                                >
+                                    {items[currentIndex].description}
+                                </motion.div>
                             </motion.div>
-                            <motion.div
-                                initial={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
-                                animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-                                exit={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
-                                transition={{ duration: 0.5, delay: 0.4 }}
-                                className="text-2xl text-orange-500 type"
-                            >
-                                {items[currentIndex].type}
-                            </motion.div>
-                            <motion.div
-                                initial={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
-                                animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-                                exit={{ y: 20, opacity: 0, filter: 'blur(20px)' }}
-                                transition={{ duration: 0.5, delay: 0.6 }}
-                                className="hidden mt-4 description md:block" // Agregando la clase hidden
-                            >
-                                {items[currentIndex].description}
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </motion.div>
-            </AnimatePresence>
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
+            </div>
         </div>
     );
 };
