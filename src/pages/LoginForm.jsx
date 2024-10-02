@@ -64,7 +64,7 @@ export const LoginForm = () => {
                   transition={{ duration: 0.6 }}
                 >
                   <h1 className="text-3xl font-bold">Saludos!</h1>
-                  <p className="text-center">Regístrate para crear tu cuenta y disfrutar de todas las funcionalidades que ofrecemos.</p>
+                  <p className="text-center">Crea una cuenta para disfrutar de todas las funcionalidades que ofrecemos.</p>
                 </motion.div>
               </>
             ) : (
