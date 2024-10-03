@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { logoutUsers } from "../services/logoutUsers";
+import LogoDark from "../public/img/Logo2.png"
+
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -9,8 +11,15 @@ export const Navbar = () => {
     <header className="relative z-10">
       <nav className="flex items-center h-16 max-w-full px-4 mx-auto bg-black sm:px-6 lg:px-8">
         {/* Espacio para el logo */}
-        <div className="mr-4">
-          <span className="text-xl font-bold text-white">Logo</span>
+        <div className="flex mb-2">
+          <img 
+            src={LogoDark} 
+            alt="Logo" 
+            style={{
+              width: '100%',
+              height: '180px',
+            }} 
+          />
         </div>
 
         {/* Left section with navigation links */}
@@ -21,7 +30,7 @@ export const Navbar = () => {
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
             </li>
             <li className="relative text-white cursor-pointer group">
-              Test
+            <Link to="/categories">Test</Link>
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
             </li>
             <li className="relative text-white cursor-pointer group">
