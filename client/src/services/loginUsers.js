@@ -18,7 +18,7 @@ export const loginUsers = async (e)=>{
         if (response.ok) {
             const data = await response.json()
             localStorage.setItem("token",data.token)
-            window.location.href = "/home"
+            window.location.href = "/"
         }
         else {
             console.error("error al iniciar sesion")

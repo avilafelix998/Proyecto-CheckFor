@@ -8,3 +8,5 @@ const logoutUsers =(e) => {
         alert("Error al cerrar sesión")
     }
 }
+
+export {logoutUsers}

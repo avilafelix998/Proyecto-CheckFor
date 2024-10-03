@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
-
+import { logoutUsers } from "../services/logoutUsers";
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -41,8 +41,11 @@ export const Navbar = () => {
             {/* Mostrar botones solo en pantallas grandes */}
             <div className="hidden md:flex">
               <Link to="/login">
-                <button className="px-2 py-1 mr-2 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100">
-                  Sign in
+                <button 
+                className="px-2 py-1 mr-2 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
+                onClick={logoutUsers}
+                >
+                  cerrar sesion
                 </button>
               </Link>
               <Link to="/login">
