@@ -10,6 +10,7 @@ import containerVid from "../public/vids/vid2.mp4";
 import containerBackVid from "../public/vids/vid7.mp4";
 import { registerUsers } from "../services/registerUsers.js";
 import { loginUsers } from "../services/loginUsers.js";
+import { Link } from "react-router-dom";
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -40,6 +41,13 @@ export const LoginForm = () => {
       style={{ backgroundImage }}
       className="relative min-h-screen overflow-hidden bg-gray-950"
     >
+        <Link to={"/"}>
+          <button
+          className="px-2 py-1 ml-4 mt-4 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
+          >
+            Home
+          </button>
+        </Link>
       <div className="relative z-10 flex items-center justify-center mt-24">
         <div className="relative flex h-[450px] w-1/2 rounded-lg bg-black shadow-lg">
           {/* Contenedor del video */}
