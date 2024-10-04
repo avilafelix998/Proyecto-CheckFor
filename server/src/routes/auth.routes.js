@@ -1,22 +1,9 @@
-import express from "express";
-import {
-  signInCtrl,
-  getMeCtrl,
-  signUpCtrl,
-} from "../controllers/auth.controllers.js";
-import { validateJwt } from "../middlewares/validateJwt.js";
-import {
-  signInValidation,
-  signUpValidation,
-} from "../validations/auth.validations.js";
-import { applyValidations } from "../validations/auth.validations.js";
+import { loginUserCtrl, registerUsersCtrl } from "../controllers/auth.controllers.js";
+import { Router } from "express";
+const authRoutes = Router()
 
-const authRouter = express.Router();
+authRoutes.post("/register",registerUsersCtrl)
+authRoutes.post("/login",loginUserCtrl)
+authRoutes.get("/",loginUserCtrl)
 
-authRouter.post("/sign-in", signInValidation, applyValidations, signInCtrl);
-authRouter.post("/sign-up", signUpValidation, applyValidations, signUpCtrl);
-authRouter.get("/me", validateJwt, getMeCtrl);
-
-export default {
-  authRouter
-}
+export {authRoutes}

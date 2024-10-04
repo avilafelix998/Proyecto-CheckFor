@@ -1,64 +1,47 @@
-import { createJwt } from "../helpers/createJwt.js";
-import { createUser, getUserByCredentials } from "../models/user.model.js";
+import { conexion } from "../database/database.js"
+import jwt from "jsonwebtoken"
 
-export const signInCtrl = async (req, res) => {
-  try {
-    const { email, password } = req.body;
+export const registerUsersCtrl = async (req, res)=>{
+    const {nombre_usuario,email,password} = req.body
+    try {
+        const conection = await conexion ()
+        conection.query("INSERT INTO `usuarios`(`nombre_usuario`, `email`,`password`) VALUES (?,?,?)",
+        [nombre_usuario, email, password, ])
+        conection.end()
 
-    const user = await getUserByCredentials(email, password);
+        res.status(200).json({message:"Usuario Registrado"})
 
-    if (!user) {
-      return res.status(401).json({ message: "las credenciales son iválidas" });
+    } catch (error) {
+        console.error(error)
+    }
+    
     }
 
-    const token = await createJwt(user.id);
 
-    res.cookie("token", token, { httpOnly: true });
+export const loginUserCtrl = async (req, res)=>{
+const {emailLogin,passwordLogin} = req.body
+try {
+    const conection = await conexion ()
+    const [searchUser] = await conection.query("SELECT * FROM usuarios WHERE email LIKE ? AND password LIKE ?",[emailLogin,passwordLogin])
+    conection.end()
 
-    res.status(200).json({ token, user });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-export const signUpCtrl = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    // Validar que el correo y la contraseña estén presentes
-    if (!email || !password) {
-      return res.status(400).json({ message: "Se requiere el correo electrónico y la contraseña" });
+    if (searchUser.length === 0) {
+        return res.status(401).json({message:"usuario no encontrado"})
     }
+    
+    const user = searchUser[0]
 
-    // Crear el usuario
-    const newUser = await createUser({ email, password });
+    const token = jwt.sign({
+        id: user.id,
+        username: user.username,
+        email: user.email,
+    }, "secreto",{expiresIn:"5h"})
+    return res.json({
+        message: "inicio de sesion exitoso",
+        token
+    })
 
-    if (!newUser) {
-      return res.status(400).json({ message: "No se pudo crear el usuario" });
-    }
-
-    const token = await createJwt(newUser.id);
-
-    res.cookie("token", token, { httpOnly: true });
-    res.status(201).json({ token, user: newUser });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-export const signOutCtrl = (_req, res) => {
-  try {
-    res.clearCookie("token");
-    res.status(200).json({ message: "Cierre de sesión exitoso" });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-export const getMeCtrl = (req, res) => {
-  try {
-    res.status(200).json(req.user);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+} catch (error) {
+    console.error("error al iniciar sesion",error)
+}
+}
