@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { logoutUsers } from "../services/logoutUsers";
-import LogoDark from "../public/img/Logo2.png"
+import LogoDark from "../public/img/Logo2.png";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,13 +12,13 @@ export const Navbar = () => {
       <nav className="flex items-center h-16 max-w-full px-4 mx-auto bg-black sm:px-6 lg:px-8">
         {/* Espacio para el logo */}
         <div className="flex mb-2">
-          <img 
-            src={LogoDark} 
-            alt="Logo" 
+          <img
+            src={LogoDark}
+            alt="Logo"
             style={{
-              width: '100%',
-              height: '180px',
-            }} 
+              width: "100%",
+              height: "180px",
+            }}
           />
         </div>
 
@@ -30,7 +30,7 @@ export const Navbar = () => {
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
             </li>
             <li className="relative text-white cursor-pointer group">
-            <Link to="/categories">Test</Link>
+              <Link to="/categories">Test</Link>
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
             </li>
             <li className="relative text-white cursor-pointer group">
@@ -45,7 +45,7 @@ export const Navbar = () => {
         </div>
 
         {/* Rectángulo naranja */}
-        <div className="absolute top-0 right-0 flex items-center w-48 h-16 bg-orange-500">
+        <div className="absolute top-0 right-0 flex items-center w-48 h-16 bg-orange-600">
           <div className="flex items-center justify-between w-full pr-2 pl-7">
             {/* Mostrar botones solo en pantallas grandes */}
             <div className="hidden md:flex">
@@ -81,7 +81,7 @@ export const Navbar = () => {
 
         {/* Diagonal en el lado izquierdo */}
         <div
-          className="absolute top-0 w-48 h-16 bg-orange-500 right-48"
+          className="absolute top-0 w-48 h-16 bg-orange-600 right-48"
           style={{ clipPath: "polygon(100% 0, 100% 100%, 80% 100%)" }}
         />
       </nav>
@@ -103,7 +103,7 @@ export const Navbar = () => {
           </ul>
           <div className="mt-4">
             <Link to="/login">
-              <button className="w-full px-4 py-2 mb-2 text-white bg-orange-500 rounded hover:bg-orange-600">
+              <button className="w-full px-4 py-2 mb-2 text-white bg-orange-600 rounded hover:bg-orange-700">
                 Sign in
               </button>
             </Link>

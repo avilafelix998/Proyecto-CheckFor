@@ -17,7 +17,7 @@ export const registerUsers = async (e)=>{
     try {
         const response = await fetch("http://localhost:3000/register",{
             method: "POST",
-            body: JSON.stringify({name,email,password}),
+            body: JSON.stringify({nombre_usuario:name,email,password}),
             headers:{
                 "Content-type":"application/json"
             }
