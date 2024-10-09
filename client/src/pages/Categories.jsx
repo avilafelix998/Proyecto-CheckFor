@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Navbar } from '../components/Navbar';
+import { BackgroundCellAnimation } from '../components/BgCell';
 import { motion } from 'framer-motion';
 
 // Iconos
@@ -86,30 +87,7 @@ export const Categories = () => {
       
       <Navbar />
 
-      <div className="text-center">
-      <h1 
-        className="mt-6 mb-3 text-4xl text-white"
-        style={{ fontFamily: "Kdam Thmor Pro, sans-serif" }}
-      >
-        {words.map((word, index) => (
-          <motion.span
-            key={index}
-            initial={{ opacity: 0, filter: 'blur(10px)' }} // Comienza con desenfoque y opacidad 0
-            animate={{ opacity: 1, filter: 'blur(0px)' }} // Aclara y quita el desenfoque
-            transition={{ duration: 0.5, delay: index * 0.3 }} // Retraso para cada palabra
-          >
-            {word}{' '}
-          </motion.span>
-        ))}
-      </h1>
-      <motion.hr
-        className="w-1/2 mx-auto mb-2 border-t-2 border-white rounded-lg"
-        initial={{ scaleX: 0 }} // Comienza en 0
-        animate={{ scaleX: 1 }} // Se estira hasta 1
-        transition={{ duration: 1.5 }} // Duración de la animación
-        
-      />
-    </div>
+      <BackgroundCellAnimation />
 
       <div className="flex flex-wrap justify-center">
         {categories.map((category, index) => (
@@ -123,7 +101,7 @@ export const Categories = () => {
           >
             {/* Div contenedor */}
             <motion.div 
-              className="relative flex items-center justify-between w-full p-4 bg-gray-200 rounded-md group" //Group = hover en conjunto
+              className="relative flex items-center justify-between w-full p-4 -mt-2 bg-gray-200 rounded-md group" //Group = hover en conjunto
               // Hover con gradiente (FF7811-FF8F00-FF9B33-FFA024-FFA52F)
               whileHover={{ 
                 //Ajustar el 25% a gusto

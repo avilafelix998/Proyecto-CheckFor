@@ -8,7 +8,7 @@ import { TestPage } from "./pages/Test.jsx";
 const App = () => (
   <Router>
     <div 
-      className="h-screen overflow-scroll bg-gradient-to-b from-black to-gray-900"
+      className="h-screen overflow-scroll bg-slate-950"
       style={{ fontFamily: "Roboto, sans-serif" }}
     >
       <Routes>

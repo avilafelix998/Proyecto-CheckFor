@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Slider } from "../components/Slider";
 import Banner from "../public/img/Banner1.jpg";
+import LogoBanner from "../public/img/Logo3.png"
 import { motion, useAnimation } from "framer-motion";
 import { Example } from "../components/SectorCard.jsx";
+import { RegSection } from "../components/Regulation.jsx";
+import { AboutUs } from "../components/AboutUs.jsx";
 
 
 const messages = [
@@ -78,12 +81,14 @@ export const Home = () => {
         <img src={Banner} alt="Banner" className="object-cover w-full h-full" />
         <div className="absolute inset-0 bg-black opacity-30 backdrop-blur-md" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1
-            className="text-white text-7xl"
-            style={{ fontFamily: "Kdam Thmor Pro" }}
-          >
-            CheckFor
-          </h1>
+        <motion.img
+            src={LogoBanner} // Ruta de tu imagen
+            alt="Logo"
+            className="w-[30em] h-auto" // Ajusta el tamaño según lo necesites
+            initial={{ opacity: 0, scale: 0.8 }} // Inicialmente invisible y más pequeño
+            animate={{ opacity: 1, scale: 1 }} // Al final, completamente visible y en tamaño normal
+            transition={{ duration: 1 }} // Duración de la animación
+          />
         </div>
       </div>
 
@@ -156,6 +161,7 @@ export const Home = () => {
           herramientas intuitivas y análisis en tiempo real, estar preparado
           ante cualquier auditoría nunca ha sido tan simple.
         </motion.p>
+
         {/* Cards */}
         <motion.div
           id="example-section" // Identificador único para el Example
@@ -166,6 +172,10 @@ export const Home = () => {
           <Example />
         </motion.div>
       </div>
+
+      <RegSection />
+      <AboutUs />
+
     </div>
   );
 };
