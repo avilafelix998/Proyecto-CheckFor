@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+// Imágenes
 import img1 from "../public/img/img1.jpg";
 import img2 from "../public/img/img2.jpg";
 import img3 from "../public/img/img3.jpg";

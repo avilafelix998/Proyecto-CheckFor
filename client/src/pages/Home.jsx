@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Slider } from "../components/Slider";
 import Banner from "../public/img/Banner1.jpg";
 import { motion, useAnimation } from "framer-motion";
-import { Example } from "../components/TiltCard.jsx";
+import { Example } from "../components/SectorCard.jsx";
+
 
 const messages = [
   "La seguridad es responsabilidad de todos. ¡Construyamos un entorno seguro!",
@@ -47,7 +48,7 @@ export const Home = () => {
     };
   }, [controls]);
 
-  // Lógica específica para el Example
+  // Lógica para el Example
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -121,20 +122,20 @@ export const Home = () => {
       {/* Div de texto */}
       <div
         id="overview-section"
-        className="bg-gradient-to-b from-black to-gray-900 text-white py-8 px-4"
+        className="px-4 py-8 text-white bg-gradient-to-b from-black to-gray-900"
       >
         <motion.h1
-          className="text-4xl text-left ml-3 mb-4 font-bold"
+          className="mb-4 ml-3 text-4xl font-bold text-left"
           initial={{ x: "-100%", opacity: 0 }} // Inicia desde la izquierda y opaco
           animate={controls} // Usa los controles de animación
           transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }} // Suaviza la animación
         >
           VISIÓN GENERAL
-          <hr className="mt-3 border-t-2 border-gray-300 w-80"></hr>
+          <hr className="mt-3 border-t-2 border-gray-300 rounded-lg w-80"></hr>
         </motion.h1>
         <motion.h2
-          className="text-3xl text-left ml-3 mb-4 text-orange-600"
-          style={{ fontFamily: "Kdam Thmor Pro" }}
+          className="mb-4 ml-3 text-3xl text-left text-orange-600"
+          style={{ fontFamily: "Kdam Thmor Pro, sans-serif" }}
           initial={{ x: "-100%", opacity: 0 }} // Inicia desde la izquierda y opaco
           animate={controls} // Usa los controles de animación
           transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }} // Suaviza la animación
@@ -142,7 +143,7 @@ export const Home = () => {
           CheckFor
         </motion.h2>
         <motion.p
-          className="text-lg text-left ml-3 transform -translate-x-0"
+          className="ml-3 text-lg text-left transform -translate-x-0"
           initial={{ x: "-100%", opacity: 0 }} // Inicia desde la izquierda y opaco
           animate={controls} // Usa los controles de animación
           transition={{ duration: 1, ease: "easeInOut", delay: 0.4 }} // Suaviza la animación

@@ -7,7 +7,10 @@ import { Categories } from "./pages/Categories.jsx";
 import { TestPage } from "./pages/Test.jsx";
 const App = () => (
   <Router>
-    <div className="h-screen overflow-scroll bg-gray-400">
+    <div 
+      className="h-screen overflow-scroll bg-gradient-to-b from-black to-gray-900"
+      style={{ fontFamily: "Roboto, sans-serif" }}
+    >
       <Routes>
         <Route path="/login" element={<LoginForm />} />
         <Route

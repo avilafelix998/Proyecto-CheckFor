@@ -23,7 +23,10 @@ export const Navbar = () => {
         </div>
 
         {/* Left section with navigation links */}
-        <div className="items-center flex-grow hidden ml-4 md:flex">
+        <div 
+          className="items-center flex-grow hidden ml-4 md:flex"
+        >
+
           <ul className="flex items-center space-x-4">
             <li className="relative text-white cursor-pointer group">
               <Link to="/">Home</Link> {/* Botón Home */}
@@ -46,7 +49,7 @@ export const Navbar = () => {
 
         {/* Rectángulo naranja */}
         <div className="absolute top-0 right-0 flex items-center w-48 h-16 bg-orange-600">
-          <div className="flex items-center justify-between w-full pr-2 pl-7">
+          <div className="flex items-center justify-between w-full pr-2 ml-9">
             {/* Mostrar botones solo en pantallas grandes */}
             <div className="hidden md:flex">
               <Link to="/login">
@@ -55,11 +58,6 @@ export const Navbar = () => {
                 onClick={logoutUsers}
                 >
                   cerrar sesion
-                </button>
-              </Link>
-              <Link to="/login">
-                <button className="px-1 py-1 text-white bg-transparent hover:text-gray-300">
-                  Log in →
                 </button>
               </Link>
             </div>

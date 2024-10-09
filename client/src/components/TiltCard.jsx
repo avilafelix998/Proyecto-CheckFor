@@ -11,18 +11,18 @@ const HALF_ROTATION_RANGE = ROTATION_RANGE / 2;
 
 export const Example = () => {
   return (
-    <div className="flex space-x-20 w-full place-content-center px-4 py-12 text-slate-900">
+    <div className="flex w-full px-4 py-12 space-x-20 place-content-center text-slate-900">
       <TiltCard
         title="Sector de Construcción"
         description="Implica múltiples actividades y riesgos, desde excavaciones hasta edificaciones complejas. Es crucial adoptar prácticas seguras, capacitar a los trabajadores, proporcionar EPP y realizar revisiones para garantizar un entorno seguro para todos."
       />
       <TiltCard
         title="Sector Industrial"
-        description="comprende actividades como fabricación, ensamblaje y distribución.  Enfrenta riesgos con la maquinaria y sustancias químicas. Es vital la capacitación y el cumplimiento de normas para proteger a los empleados y prevenir accidentes."
+        description="Comprende actividades como fabricación, ensamblaje y distribución.  Enfrenta riesgos con la maquinaria y sustancias químicas. Es vital la capacitación y el cumplimiento de normas para proteger a los empleados y prevenir accidentes."
       />
       <TiltCard
         title="Sector Institucional"
-        description="abarca escuelas, universidades e instituciones, donde la seguridad e higiene es fundamental. Se deben establecer protocolos claros para prevenir incidentes y garantizar un entorno seguro, especialmente en lugares con alta afluencia de personas."
+        description="Abarca escuelas, universidades e instituciones, donde la seguridad e higiene es fundamental. Se deben establecer protocolos claros para prevenir incidentes y garantizar un entorno seguro, especialmente en lugares con alta afluencia de personas."
       />
     </div>
   );
@@ -78,17 +78,17 @@ export const TiltCard = ({ title, description }) => {
           transform: "translateZ(75px)",
           transformStyle: "preserve-3d",
         }}
-        className="absolute inset-4 grid place-content-center rounded-xl bg-gradient-to-br from-gray-200 to-gray-300 shadow-lg"
+        className="absolute grid bg-white shadow-lg inset-4 place-content-center rounded-xl"
       >
         <p
           style={{
             transform: "translateZ(50px)",
           }}
-          className="text-center text-2xl font-bold"
+          className="text-2xl font-bold text-center"
         >
           {title}
         </p>
-        <p className="text-black text-center text-lg p-2">{description}</p>
+        <p className="p-2 text-lg text-center text-black">{description}</p>
       </div>
     </motion.div>
   );

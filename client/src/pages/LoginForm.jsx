@@ -43,7 +43,7 @@ export const LoginForm = () => {
     >
         <Link to={"/"}>
           <button
-          className="px-2 py-1 ml-4 mt-4 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
+          className="px-2 py-1 mt-4 ml-4 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
           >
             Home
           </button>
