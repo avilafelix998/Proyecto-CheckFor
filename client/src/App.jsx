@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home.jsx";
 import { LoginForm } from "./pages/LoginForm.jsx";
 import { Navbar } from "./components/Navbar.jsx";
+import { Help } from "./pages/Help.jsx";
 import { Categories } from "./pages/Categories.jsx";
 import { TestPage } from "./pages/Test.jsx";
 const App = () => (
   <Router>
     <div 
-      className="h-screen overflow-scroll bg-slate-950"
+      className="h-screen bg-slate-950"
       style={{ fontFamily: "Roboto, sans-serif" }}
     >
       <Routes>
@@ -22,6 +23,7 @@ const App = () => (
             </>
           }
         />
+        <Route path="/help" element={<Help />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/test" element={<TestPage />} />
       </Routes>

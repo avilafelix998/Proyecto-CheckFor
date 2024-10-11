@@ -151,7 +151,7 @@ export const Home = () => {
           className="ml-3 text-lg text-left transform -translate-x-0"
           initial={{ x: "-100%", opacity: 0 }} // Inicia desde la izquierda y opaco
           animate={controls} // Usa los controles de animación
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.4 }} // Suaviza la animación
+          transition={{ duration: 1.05, ease: "easeInOut", delay: 0.5 }} // Suaviza la animación
         >
           Una plataforma diseñada para ayudar a líderes de 3 sectores a mantener
           la seguridad en el entorno laboral. Facilita la evaluación de riesgos
@@ -167,7 +167,7 @@ export const Home = () => {
           id="example-section" // Identificador único para el Example
           initial={{ x: "100%", opacity: 0 }} // Inicia desde la derecha y opaco
           animate={exampleControls} // Usa los controles de animación del Example
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }} // Suaviza la animación
+          transition={{ duration: 1.05, ease: "easeInOut", delay: 0.5 }} // Suaviza la animación
         >
           <Example />
         </motion.div>

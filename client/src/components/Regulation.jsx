@@ -1,23 +1,74 @@
 
-import { motion } from "framer-motion";
-import { FiMapPin } from "react-icons/fi";
+import {
+  motion,
+  useMotionTemplate,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import P1 from "../public/img/P4.jpg"
 
 export const RegSection = () => {
   return (
     <div className="overflow-hidden bg-zinc-950">
+      <Hero />
       <Regulations />
     </div>
   );
 };
 
+const SECTION_HEIGHT = 1500;
 
-    
+const Hero = () => {
+  return (
+    <div
+      style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
+      className="relative w-full max-h-screen"
+    >
+      <CenterImage />
+
+    </div>
+  );
+};
+
+const CenterImage = () => {
+  const { scrollY } = useScroll();
+
+  const clip1 = useTransform(scrollY, [0, 1500], [25, 0]);
+  const clip2 = useTransform(scrollY, [0, 1500], [75, 100]);
+
+  const clipPath = useMotionTemplate`polygon(${clip1}% ${clip1}%, ${clip2}% ${clip1}%, ${clip2}% ${clip2}%, ${clip1}% ${clip2}%)`;
+
+  const backgroundSize = useTransform(
+    scrollY,
+    [0, SECTION_HEIGHT + 500],
+    ["170%", "100%"]
+  );
+  const opacity = useTransform(
+    scrollY,
+    [SECTION_HEIGHT, SECTION_HEIGHT + 500],
+    [1, 0]
+  );
+
+  return (
+    <motion.div
+      className="sticky top-0 w-full h-screen"
+      style={{
+        clipPath,
+        backgroundSize,
+        opacity,
+        backgroundImage: `url(${P1})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    />
+  );
+};
 
 const Regulations = () => {
   return (
     <section
       id="regulations"
-      className="max-w-6xl px-4 py-32 mx-auto text-white"
+      className="max-w-6xl px-4 py-24 mx-auto text-white"
     >
       <motion.h1
         initial={{ y: 48, opacity: 0 }}

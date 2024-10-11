@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import IP1 from '../public/img/IP1.jpg';
+import { FaArrowUp } from "react-icons/fa";
 
 export const AboutUs = () => {
     return (
@@ -38,6 +39,7 @@ export const AboutUs = () => {
               <p className="text-lg">
                 Somos un pequeño equipo de estudiantes de la Tecnicatura Superior en Desarrollo de Software Multiplataforma del Instituto Politécnico de Formosa, encargados del proyecto CheckFor. Especializados en brindar soluciones a problemas varios en medida de nuestras habilidades. Deseamos que nuestra plataforma sea útil y eficaz para nuestros usuarios.
               </p>
+              
             </motion.div>
           </div>
         </section>

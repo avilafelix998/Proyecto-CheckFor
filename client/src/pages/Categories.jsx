@@ -80,10 +80,8 @@ export const Categories = () => {
     "Evalúa la accesibilidad de planes de emergencia y la capacitación del personal. Realiza simulacros y asegura la señalización de rutas de evacuación e inspecciona el equipo de emergencia."
   ];
 
-  const words = "SELECCIONE EL ÁREA A EVALUAR".split(" ");
-
   return (
-    <div className="justify-between p-0">
+    <div className="justify-between p-0 bg-slate-950">
       
       <Navbar />
 
