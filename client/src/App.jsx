@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navbar.jsx";
 import { Help } from "./pages/Help.jsx";
 import { Categories } from "./pages/Categories.jsx";
 import { TestPage } from "./pages/Test.jsx";
+import { Kanban } from "./pages/Kanban.jsx";
 const App = () => (
   <Router>
     <div 
@@ -26,6 +27,7 @@ const App = () => (
         <Route path="/help" element={<Help />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/test" element={<TestPage />} />
+        <Route path="/kanban" element={<Kanban />} />
       </Routes>
     </div>
   </Router>
