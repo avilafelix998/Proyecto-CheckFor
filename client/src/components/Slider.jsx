@@ -87,7 +87,7 @@ export const Slider = () => {
 
   return (
     //* div envoltorio - no tocar
-    <div className="...">
+    <div>
       {" "}
       {/* ajustar con p-2 y bg-black a gusto */}
       <div className="relative w-full overflow-hidden h-96 slider">

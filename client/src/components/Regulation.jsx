@@ -5,7 +5,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import P1 from "../public/img/P4.jpg"
+import P1 from "../public/img/P1.jpg"
 
 export const RegSection = () => {
   return (
@@ -22,7 +22,7 @@ const Hero = () => {
   return (
     <div
       style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-      className="relative w-full max-h-screen"
+      className="relative hidden w-full max-h-screen md:block"
     >
       <CenterImage />
 
