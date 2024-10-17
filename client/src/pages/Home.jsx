@@ -7,6 +7,11 @@ import { Example } from "../components/SectorCard.jsx";
 import { RegSection } from "../components/Regulation.jsx";
 import { AboutUs } from "../components/AboutUs.jsx";
 
+import { Navbar } from "../components/Navbar.jsx";
+import { NavbarNotSession } from "../components/NavbarNotSession.jsx";
+import { verifyJWT } from "../services/verifyJWT.js";
+
+
 
 const messages = [
   "La seguridad es responsabilidad de todos. ¡Construyamos un entorno seguro!",
@@ -16,6 +21,9 @@ const messages = [
 ];
 
 export const Home = () => {
+
+  let tokenExist = verifyJWT()
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
   const exampleControls = useAnimation(); // Controles para el Example
@@ -76,6 +84,9 @@ export const Home = () => {
   }, [exampleControls]);
 
   return (
+    <>
+        {tokenExist ? <Navbar /> : <NavbarNotSession />}
+
     <div className="overflow-hidden bg-slate-300">
       <div className="relative w-full h-64">
         <img src={Banner} alt="Banner" className="object-cover w-full h-full" />
@@ -177,5 +188,6 @@ export const Home = () => {
       <AboutUs />
 
     </div>
+    </>
   );
 };

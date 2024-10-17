@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { logoutUsers } from "../services/logoutUsers";
 import LogoDark from "../public/img/Logo2.png";
 
-export const Navbar = () => {
+export const NavbarNotSession = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -36,18 +36,7 @@ export const Navbar = () => {
               <Link to="/help">Ayuda</Link>
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
             </li>
-            <li className="relative text-white cursor-pointer group">
-              <Link to="/categories">Test</Link>
-              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
-            </li>
-            <li className="relative text-white cursor-pointer group">
-              Dashboard
-              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
-            </li>
-            <li className="relative text-white cursor-pointer group">
-              <Link to="/kanban">Tareas</Link>
-              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
-            </li>
+            
           </ul>
         </div>
 
@@ -56,14 +45,16 @@ export const Navbar = () => {
           <div className="flex items-center justify-between w-full pr-2 ml-9">
             {/* Mostrar botones solo en pantallas grandes */}
             <div className="hidden md:flex">
-              <Link to="/login">
-                <button 
-                className="px-2 py-1 mr-2 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
-                onClick={logoutUsers}
-                >
-                  cerrar sesión
-                </button>
-              </Link>
+            <div className="mt-4">
+            <Link to="/login">
+              <button 
+               className="px-2 py-1 mr-2 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
+               >
+                iniciar sesión
+              </button>
+            </Link>
+            
+          </div>
             </div>
             {/* Botón hamburguesa para móviles */}
             <div className="md:hidden ml-9">

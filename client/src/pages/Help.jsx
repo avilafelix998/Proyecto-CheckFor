@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from '../components/Navbar';
+import { verifyJWT } from "../services/verifyJWT.js";
+import { NavbarNotSession } from "../components/NavbarNotSession.jsx";
 
 //Iconos
 import { FaCircleUser } from "react-icons/fa6";
@@ -15,10 +17,16 @@ import P4 from "../public/img/P4.jpg";
 import P5 from "../public/img/P5.jpg";
 
 export const Help = () => {
-  return (
-    <div className="bg-gradient-to-b from-black via-zinc-950 to-gray-950">
-      <Navbar />
 
+  let tokenExist = verifyJWT()
+
+
+  return (
+  
+    <div className="bg-gradient-to-b from-black via-zinc-950 to-gray-950">
+              {tokenExist ? <Navbar /> : <NavbarNotSession />}
+
+              
       <TextParallaxContent
         imgUrl={P2}
         subheading="Incorpórate"
