@@ -11,8 +11,10 @@ import containerBackVid from "../public/vids/vid7.mp4";
 import { registerUsers } from "../services/registerUsers.js";
 import { loginUsers } from "../services/loginUsers.js";
 import { Link } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 
-const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
+//"#13FFAA", "#1E67C6", "#CE84CF", "#DD335C" Opcional
+const COLORS_TOP = ["#DB4110", "#D9700D", "#D98B0D", "#FF7811", "#A14F7A"];
 
 export const LoginForm = () => {
   const color = useMotionValue(COLORS_TOP[0]);
@@ -43,9 +45,9 @@ export const LoginForm = () => {
     >
         <Link to={"/"}>
           <button
-          className="px-2 py-1 mt-4 ml-4 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
+          className="p-3 mt-6 ml-6 text-3xl text-orange-600 bg-gray-800 rounded bg-opacity-70 hover:bg-gray-900"
           >
-            Home
+            <FaHome />
           </button>
         </Link>
       <div className="relative z-10 flex items-center justify-center mt-24">
