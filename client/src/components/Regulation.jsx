@@ -79,12 +79,20 @@ const Regulations = () => {
         Normativas y Regulaciones
       </motion.h1>
       <RegulationItem 
-        title="Ley Nacional de Higiene y Seguridad en el Trabajo (Ley N° 24.557)"
+        title="Ley de Riesgos del Trabajo (Ley N° 24.557)"
+        description="Regula el sistema de riesgos laborales en Argentina, estableciendo las responsabilidades de empleadores, las prestaciones por accidentes y enfermedades laborales, y la creación de las Aseguradoras de Riesgos del Trabajo (ART). Su objetivo es prevenir accidentes y garantizar la cobertura ante siniestros laborales."
+      />
+      <RegulationItem 
+        title="Ley Nacional de Higiene y Seguridad en el Trabajo (Ley N° 19.587)"
         description="Establece las condiciones básicas de higiene y seguridad en el trabajo, aplicable a todos los sectores. Define responsabilidades para empleadores y trabajadores, y establece procedimientos para la prevención de accidentes laborales."
       />
       <RegulationItem 
         title="Reglamento de Higiene y Seguridad en el Trabajo (Decreto N° 351/79)"
         description="Complementa la Ley N° 24.557 y detalla medidas específicas que deben adoptar las empresas para garantizar la seguridad y salud de los trabajadores."
+      />
+      <RegulationItem 
+        title="Normativa de Seguridad y Salud Laboral (Resolución SRT N° 295/2003)"
+        description="Establece las condiciones mínimas de seguridad y salud ocupacional que deben seguir las empresas en Argentina. Regula aspectos como la ventilación, iluminación, señalización, protección contra incendios, entre otros."
       />
       <RegulationItem 
         title="Ley Provincial de Seguridad e Higiene en el Trabajo (Ley N° 1.498)"
@@ -101,10 +109,6 @@ const Regulations = () => {
       <RegulationItem 
         title="Convenios Internacionales"
         description="Argentina es parte de la Organización Internacional del Trabajo (OIT), adhiriéndose a varios convenios internacionales sobre seguridad y salud en el trabajo que influyen en la legislación local."
-      />
-      <RegulationItem 
-        title="Ley de Accidentes de Trabajo (Ley N° 24.557)"
-        description="Establece el régimen de responsabilidad y compensación en caso de accidentes laborales, promoviendo la prevención y el cuidado de la salud de los trabajadores."
       />
     </section>
   );

@@ -81,11 +81,11 @@ export const Categories = () => {
   ];
 
   return (
-    <div className="justify-between p-0 bg-slate-950">
+    <div className="justify-between p-0 bg-gradient-to-b from-black via-zinc-950 to-gray-950">
       
       <Navbar />
 
-      <BackgroundCellAnimation />
+      <BackgroundCellAnimation text="SELECCIONE EL ÁREA A EVALUAR" />
 
       <div className="flex flex-wrap justify-center">
         {categories.map((category, index) => (

@@ -2,24 +2,24 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { cn } from "../utils/cn.js"; // Asegúrate de que esta función esté disponible
 
-export const BackgroundCellAnimation = () => {
+export const BackgroundCellAnimation = ({ text }) => {
   return (
-    <div className="relative flex justify-center overflow-hidden h-[140px] bg-slate-950">
+    <div className="relative flex justify-center overflow-hidden h-[140px] ">
       <BackgroundCellCore />
       <div className="relative z-50 mt-12 pointer-events-none select-none">
-        <AnimatedHeading />
+        <AnimatedHeading text={ text } />
       </div>
     </div>
   );
 };
 
-const AnimatedHeading = () => {
-  const words = "SELECCIONE EL ÁREA A EVALUAR".split(" ");
+const AnimatedHeading = ({ text }) => {
+  const words = text.split(" ");
   
   return (
     <div className="relative text-center top-1 ">
       <h1 
-        className="mb-4 text-3xl text-white "
+        className="mb-4 text-3xl text-white"
         style={{ fontFamily: "Kdam Thmor Pro, sans-serif" }}
       >
         {words.map((word, index) => (
@@ -63,7 +63,7 @@ const BackgroundCellCore = () => {
       className="absolute inset-0 h-full"
     >
       <div className="absolute h-[20rem] inset-y-0 overflow-hidden">
-        <div className="absolute z-40 w-full h-full pointer-events-none -bottom-2 bg-slate-950"
+        <div className="absolute z-40 w-full h-full pointer-events-none b -bottom-2 bg-gradient-to-b from-black to-zinc-950"
              style={{
                maskImage: 'linear-gradient(to bottom, transparent, transparent 20%, black 40%)' // Ajustado para que inicie a partir de la cuarta fila
              }}></div>
