@@ -37,7 +37,7 @@ export const Navbar = () => {
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
             </li>
             <li className="relative text-white cursor-pointer group">
-              <Link to="/categories">Test</Link>
+              <Link to="/sector">Test</Link>
               <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
             </li>
             <li className="relative text-white cursor-pointer group">

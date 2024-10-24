@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home.jsx";
 import { LoginForm } from "./pages/LoginForm.jsx";
 import { Help } from "./pages/Help.jsx";
+import { Sector } from "./pages/Sector.jsx";
 import { Categories } from "./pages/Categories.jsx";
 import { TestPage } from "./pages/Test.jsx";
 import { Kanban } from "./pages/Kanban.jsx";
+
 
 const App = () => {
   return (
@@ -25,7 +27,8 @@ const App = () => {
             }
           />
           <Route path="/help" element={<Help />} />
-          <Route path="/categories" element={<Categories />} />
+          <Route path="/sector" element={<Sector />} />
+        <Route path="/categories" element={<Categories />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/kanban" element={<Kanban />} />
         </Routes>

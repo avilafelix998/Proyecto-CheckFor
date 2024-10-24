@@ -98,7 +98,7 @@ export const Home = () => {
             className="w-[30em] h-auto" // Ajusta el tamaño según lo necesites
             initial={{ opacity: 0, scale: 0.8 }} // Inicialmente invisible y más pequeño
             animate={{ opacity: 1, scale: 1 }} // Al final, completamente visible y en tamaño normal
-            transition={{ duration: 1 }} // Duración de la animación
+            transition={{ duration: 1.5 }} // Duración de la animación
           />
         </div>
       </div>

@@ -45,7 +45,7 @@ export const NavbarNotSession = () => {
           <div className="flex items-center justify-between w-full pr-2 ml-9">
             {/* Mostrar botones solo en pantallas grandes */}
             <div className="hidden md:flex">
-            <div className="mt-4">
+        
             <Link to="/login">
               <button 
                className="px-2 py-1 mr-2 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
@@ -54,7 +54,7 @@ export const NavbarNotSession = () => {
               </button>
             </Link>
             
-          </div>
+        
             </div>
             {/* Botón hamburguesa para móviles */}
             <div className="md:hidden ml-9">

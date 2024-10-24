@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import IP1 from '../public/img/IP1.jpg';
 import { FaArrowUp } from "react-icons/fa";
 
-//bg-gradient-to-b from-black to-gray-950
 export const AboutUs = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -16,12 +15,12 @@ export const AboutUs = () => {
               initial={{ opacity: 0, y: -50 }} // Cambiado a y para animar desde arriba
               whileInView={{ opacity: 1, y: 0 }} // Cambiado a y para animar al centro
               transition={{ duration: 1.0 }}
-              className="p-4 mb-8 mr-5 rounded-md shadow-lg bg-gray-950 md:w-1/2 md:mb-0 group"
+              className="p-4 mb-8 mr-5 rounded-md shadow-lg bg-gray-950 md:w-1/2 md:mb-0"
             >
               <img
                 src={ IP1 }
                 alt="About Us"
-                className="object-cover w-full rounded-t-md h-[260px] z-10 transform-transition duration-500 group-hover:scale-[1.01]"
+                className="object-cover w-full rounded-t-md h-[260px] z-10 transform-transition duration-500"
               />
               <div className="p-4">
                 <h3 className="mt-2 mb-2 text-xl font-semibold">Nuestra Misión</h3>
