@@ -1,6 +1,7 @@
 import { conexion } from "../database/database.js"
 import jwt from "jsonwebtoken"
 
+
 export const registerUsersCtrl = async (req, res)=>{
     const {nombre_usuario,email,password} = req.body
     try {
@@ -35,13 +36,41 @@ try {
         id: user.id,
         username: user.username,
         email: user.email,
-    }, "secreto",{expiresIn:"5h"})
-    return res.json({
+    }, "secreto" , {expiresIn:"5h"})
+
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: false,
+      });
+
+    res.json({
         message: "inicio de sesion exitoso",
-        token
+    
     })
 
 } catch (error) {
     console.error("error al iniciar sesion",error)
 }
 }
+export const checkAuthCtrl = (req, res) => {
+    res.set('Cache-Control', 'no-store'); //Evita que el navegador guarde la respuesta en cache
+    res.status(200).json({ user: req.user });
+    console.log(req.user);
+  };
+
+
+  
+  export const logoutUserCtrl = (req, res) => {
+    // Elimina la cookie llamada 'token'
+    res.clearCookie('token', {
+        httpOnly: true,
+        secure: false, // Cambiar a true si usas HTTPS
+        sameSite: 'Lax'  // Asegura compatibilidad con el envío de cookies
+    });
+    
+    res.json({
+        message: "Sesión cerrada exitosamente"
+    });
+};
+
+ 

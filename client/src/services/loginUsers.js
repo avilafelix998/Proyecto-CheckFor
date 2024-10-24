@@ -13,11 +13,10 @@ export const loginUsers = async (e)=>{
             body: JSON.stringify({emailLogin,passwordLogin}),
             headers:{
                 "Content-type":"application/json"
-            }
+            },
+             credentials: "include"
         })
         if (response.ok) {
-            const data = await response.json()
-            localStorage.setItem("token",data.token)
             window.location.href = "/"
         }
         else {

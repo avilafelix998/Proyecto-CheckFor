@@ -1,36 +1,19 @@
-// import { getUserById } from "../models/user.model.js";
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 
-// Validate JWT middleware
-export const validateJwt = async (req, res, next) => {
-  // Se obtiene el token de las cookies
-  const token = req.cookies.token;
+export const validateJwt = (req, res, next) => {
+    const token = req.cookies.token; // Accede al token desde las cookies
 
-  // Si no hay token, se responde con un mensaje de error
-  if (!token) {
-    return res.status(401).json({ message: "se requiere la sesión" });
-  }
-
-  // Se verifica el token
-  try {
-    // Se obtiene el id del usuario del token
-    const { userId } = jwt.verify(token, "secret");
-
-    // Se obtiene el usuario por su id
-    const user = await getUserById(userId);
-
-    // Si no se encuentra el usuario, se responde con un mensaje de error
-    if (!user) {
-      return res.status(404).json({ message: "usuario no encontrado" });
+    if (!token) {
+        return res.status(401).json({ message: 'Token no encontrado, acceso denegado.' });
     }
 
-    // Se añade el usuario a la solicitud
-    req.user = user;
-
-    // Se llama al siguiente middleware
-    next();
-  } catch (err) {
-    // Si hay un error al verificar el token, se responde con un mensaje de error
-    return res.status(401).json({ message: "sesión inválida" });
-  }
+    // Verificar el token
+    jwt.verify(token, "secreto", (err, user) => {
+        if (err) {
+            return res.status(403).json({ message: 'Token inválido o expirado.' });
+        }
+        // Si el token es válido guarda la info del usuario en req.user
+        req.user = user;
+        next()
+    });
 };
