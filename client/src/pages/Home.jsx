@@ -22,11 +22,18 @@ const messages = [
 
 export const Home = () => {
 
-  let tokenExist = verifyJWT()
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
   const exampleControls = useAnimation(); // Controles para el Example
+  const [isToken, setToken] = useState(false)
+
+  useEffect(() => {
+    verifyJWT()
+      .then(respuesta => {
+        console.log(respuesta);
+        setToken(respuesta)
+      })
+  }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -83,9 +90,11 @@ export const Home = () => {
     };
   }, [exampleControls]);
 
+
+
   return (
     <>
-        {tokenExist ? <Navbar /> : <NavbarNotSession />}
+        {isToken ? <Navbar /> : <NavbarNotSession />}
 
     <div className="overflow-hidden bg-slate-300">
       <div className="relative w-full h-64">

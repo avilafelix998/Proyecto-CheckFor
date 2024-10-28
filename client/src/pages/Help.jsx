@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef ,useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Navbar } from '../components/Navbar';
+import { Navbar } from '../components/Navbar.jsx';
 import { verifyJWT } from "../services/verifyJWT.js";
 import { NavbarNotSession } from "../components/NavbarNotSession.jsx";
+
 
 //Iconos
 import { FaCircleUser } from "react-icons/fa6";
@@ -18,14 +19,22 @@ import P5 from "../public/img/P5.jpg";
 
 export const Help = () => {
 
-  let tokenExist = verifyJWT()
+  const [isToken, setToken] = useState(false)
+
+  useEffect(() => {
+    verifyJWT()
+      .then(respuesta => {
+        console.log(respuesta);
+        setToken(respuesta)
+      })
+  }, [])
 
 
   return (
-  
+ 
     <div className="bg-gradient-to-b from-black via-zinc-950 to-gray-950">
-              {tokenExist ? <Navbar /> : <NavbarNotSession />}
-
+ 
+          {isToken ? <Navbar /> : <NavbarNotSession />}
               
       <TextParallaxContent
         imgUrl={P2}

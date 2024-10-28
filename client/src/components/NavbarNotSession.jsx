@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { logoutUsers } from "../services/logoutUsers";
+import { logoutUsers } from "../services/logoutUsers.js";
 import LogoDark from "../public/img/Logo2.png";
 
 export const NavbarNotSession = () => {
