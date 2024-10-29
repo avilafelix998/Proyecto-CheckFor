@@ -12,7 +12,7 @@ import { Kanban } from "./pages/Kanban.jsx";
 const App = () => (
   <Router>
     <div 
-      className="h-screen bg-slate-950"
+      className="bg-gradient-to-b from-black via-zinc-950 to-gray-950"
       style={{ fontFamily: "Roboto, sans-serif" }}
     >
       <Routes>

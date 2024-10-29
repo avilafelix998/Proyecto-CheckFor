@@ -6,7 +6,7 @@ import { motion, useAnimation } from "framer-motion";
 import { Example } from "../components/SectorCard.jsx";
 import { RegSection } from "../components/Regulation.jsx";
 import { AboutUs } from "../components/AboutUs.jsx";
-
+import { Footer } from "../components/Footer.jsx"; 
 
 const messages = [
   "La seguridad es responsabilidad de todos. ¡Construyamos un entorno seguro!",
@@ -77,6 +77,7 @@ export const Home = () => {
 
   return (
     <div className="overflow-hidden bg-slate-300">
+      {/* Banner con capa de blur y logo */}
       <div className="relative w-full h-64">
         <img src={Banner} alt="Banner" className="object-cover w-full h-full" />
         <div className="absolute inset-0 bg-black opacity-30 backdrop-blur-md" />
@@ -175,6 +176,7 @@ export const Home = () => {
 
       <RegSection />
       <AboutUs />
+      <Footer />
 
     </div>
   );

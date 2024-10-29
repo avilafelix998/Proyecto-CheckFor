@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from '../components/Navbar';
+import { Footer } from "../components/Footer.jsx"; 
 
 //Iconos
 import { FaCircleUser } from "react-icons/fa6";
@@ -46,7 +47,10 @@ export const Help = () => {
         heading="Gestión sencilla de tus tareas."
         helpContent={<HelpContent4 />}
       />
+      
+      <Footer />
     </div>
+    
   );
 };
 

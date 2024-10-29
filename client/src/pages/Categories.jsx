@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Navbar } from '../components/Navbar';
 import { BackgroundCellAnimation } from '../components/BgCell';
 import { motion } from 'framer-motion';
+import { Footer } from "../components/Footer.jsx"; 
 
 // Iconos
 import { FaHelmetSafety, FaPersonFalling } from "react-icons/fa6";
@@ -81,13 +82,13 @@ export const Categories = () => {
   ];
 
   return (
-    <div className="justify-between p-0 bg-gradient-to-b from-black via-zinc-950 to-gray-950">
+    <div className="justify-between p-0">
       
       <Navbar />
 
       <BackgroundCellAnimation text="SELECCIONE EL ÁREA A EVALUAR" />
 
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-center mb-2">
         {categories.map((category, index) => (
           <motion.a 
             href={`/test?${category.id_categoria}`} 
@@ -147,6 +148,7 @@ export const Categories = () => {
           </motion.a>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };
