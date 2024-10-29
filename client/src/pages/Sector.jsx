@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from '../components/Navbar';
 import { BackgroundCellAnimation } from '../components/BgCell';
 import { motion } from 'framer-motion';
+import { Footer } from "../components/Footer.jsx"; 
 
 //Imágenes
 import Bg4 from '../public/img/Bg4.png';
@@ -10,11 +11,11 @@ import Bg6 from '../public/img/Bg11.png';
 
 export const Sector = () => {
     return (
-      <div className="bg-gradient-to-b from-black via-zinc-950 to-gray-950">
+      <div>
         <Navbar />
         <BackgroundCellAnimation text="SELECCIONE UN SECTOR" />
 
-        <div className="relative z-10 flex flex-col items-center justify-center overflow-hidden text-white mt-9">
+        <div className="relative z-10 flex flex-col items-center justify-center py-6 overflow-hidden text-white">
           
         <SectorSection
           title="Sector de Construcción"
@@ -49,6 +50,8 @@ export const Sector = () => {
           delay={0.4}
         />
       </div>
+      
+      <Footer />
     </div>
   );
 };
@@ -79,5 +82,6 @@ const SectorSection = ({ title, description, bgColor, hoverBgColor, hoverBtn, im
       </Link>
       <img src={imgSrc} className="absolute object-cover duration-300 right-12 bottom-1 brightness-0 invert w-28 h-28 md:w-48 md:h-48 group-hover:rotate-12" />
     </motion.section>
+    
   );
 };

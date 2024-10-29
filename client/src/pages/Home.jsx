@@ -11,7 +11,7 @@ import { Navbar } from "../components/Navbar.jsx";
 import { NavbarNotSession } from "../components/NavbarNotSession.jsx";
 import { verifyJWT } from "../services/verifyJWT.js";
 
-
+import { Footer } from "../components/Footer.jsx"; 
 
 const messages = [
   "La seguridad es responsabilidad de todos. ¡Construyamos un entorno seguro!",
@@ -97,6 +97,7 @@ export const Home = () => {
         {isToken ? <Navbar /> : <NavbarNotSession />}
 
     <div className="overflow-hidden bg-slate-300">
+      {/* Banner con capa de blur y logo */}
       <div className="relative w-full h-64">
         <img src={Banner} alt="Banner" className="object-cover w-full h-full" />
         <div className="absolute inset-0 bg-black opacity-30 backdrop-blur-md" />
@@ -195,6 +196,7 @@ export const Home = () => {
 
       <RegSection />
       <AboutUs />
+      <Footer />
 
     </div>
     </>

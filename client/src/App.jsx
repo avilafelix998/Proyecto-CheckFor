@@ -8,26 +8,25 @@ import { Categories } from "./pages/Categories.jsx";
 import { TestPage } from "./pages/Test.jsx";
 import { Kanban } from "./pages/Kanban.jsx";
 
-
-const App = () => {
-  return (
-    <Router>
-      <div
-        className="h-screen bg-slate-950"
-        style={{ fontFamily: "Roboto, sans-serif" }}
-      >
-        <Routes>
-          <Route path="/login" element={<LoginForm />} />
-          <Route
-            path="/"
-            element={
-              <>
-                <Home />
-              </>
-            }
-          />
-          <Route path="/help" element={<Help />} />
-          <Route path="/sector" element={<Sector />} />
+const App = () => (
+  <Router>
+    <div 
+      className="bg-gradient-to-b from-black via-zinc-950 to-gray-950"
+      style={{ fontFamily: "Roboto, sans-serif" }}
+    >
+      <Routes>
+        <Route path="/login" element={<LoginForm />} />
+        <Route
+          path="/"
+          element={
+            <>
+    
+              <Home />
+            </>
+          }
+        />
+        <Route path="/help" element={<Help />} />
+        <Route path="/sector" element={<Sector />} />
         <Route path="/categories" element={<Categories />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/kanban" element={<Kanban />} />
@@ -35,6 +34,6 @@ const App = () => {
       </div>
     </Router>
   );
-};
+
 
 export default App;

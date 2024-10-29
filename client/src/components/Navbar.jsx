@@ -30,35 +30,36 @@ export const Navbar = () => {
           <ul className="flex items-center space-x-4">
             <li className="relative text-white cursor-pointer group">
               <Link to="/">Home</Link> {/* Botón Home */}
-              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
+              <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all origin-left duration-300"></span>
             </li>
             <li className="relative text-white cursor-pointer group">
               <Link to="/help">Ayuda</Link>
-              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
+              <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all origin-left duration-300"></span>
             </li>
             <li className="relative text-white cursor-pointer group">
               <Link to="/sector">Test</Link>
-              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
+              <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all origin-left duration-300"></span>
             </li>
             <li className="relative text-white cursor-pointer group">
               Dashboard
-              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
+              <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all origin-left duration-300"></span>
             </li>
             <li className="relative text-white cursor-pointer group">
               <Link to="/kanban">Tareas</Link>
-              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 mt-1"></span>
+              <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all origin-left duration-300"></span>
             </li>
           </ul>
         </div>
 
-        {/* Rectángulo naranja */}
-        <div className="absolute top-0 right-0 flex items-center w-48 h-16 bg-orange-600">
-          <div className="flex items-center justify-between w-full pr-2 ml-9">
+        {/* Rectángulo naranja con diagonal en el lado izquierdo */}
+        <div className="absolute top-0 right-0 flex items-center h-16 bg-orange-600 w-72 md:w-80"
+        style={{ clipPath: "polygon(42% 0, 100% 0, 100% 100%, 30% 100%)" }}>
+          <div className="flex items-center justify-end w-full mr-6">
             {/* Mostrar botones solo en pantallas grandes */}
             <div className="hidden md:flex">
               <Link to="/login">
                 <button 
-                className="px-2 py-1 mr-2 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
+                className="px-2 py-1 mr-5 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
                 onClick={logoutUsers}
                 >
                   cerrar sesión
@@ -66,7 +67,7 @@ export const Navbar = () => {
               </Link>
             </div>
             {/* Botón hamburguesa para móviles */}
-            <div className="md:hidden ml-9">
+            <div className="mr-14 md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-white focus:outline-none"
@@ -81,11 +82,6 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Diagonal en el lado izquierdo */}
-        <div
-          className="absolute top-0 w-48 h-16 bg-orange-600 right-48"
-          style={{ clipPath: "polygon(100% 0, 100% 100%, 80% 100%)" }}
-        />
       </nav>
 
       {/* Mobile menu */}

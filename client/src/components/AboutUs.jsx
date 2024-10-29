@@ -45,7 +45,7 @@ export const AboutUs = () => {
               </p>
             </motion.div>
           </div>
-          <div className="relative hidden md:flex justify-center left-[40em]">
+          <div className="relative hidden md:flex justify-center left-[38em]">
             <div className="flex items-center justify-center">
               <button
                 className="relative flex items-center justify-center

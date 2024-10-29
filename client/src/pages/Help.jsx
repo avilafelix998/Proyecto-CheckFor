@@ -1,9 +1,9 @@
 import React, { useRef ,useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from '../components/Navbar.jsx';
-import { verifyJWT } from "../services/verifyJWT.js";
 import { NavbarNotSession } from "../components/NavbarNotSession.jsx";
-
+import { verifyJWT } from "../services/verifyJWT.js";
+import { Footer } from "../components/Footer.jsx";
 
 //Iconos
 import { FaCircleUser } from "react-icons/fa6";
@@ -63,7 +63,10 @@ export const Help = () => {
         heading="Gestión sencilla de tus tareas."
         helpContent={<HelpContent4 />}
       />
+      
+      <Footer />
     </div>
+    
   );
 };
 

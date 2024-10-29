@@ -19,8 +19,8 @@ const AnimatedHeading = ({ text }) => {
   return (
     <div className="relative text-center top-1 ">
       <h1 
-        className="mb-4 text-3xl text-white"
-        style={{ fontFamily: "Kdam Thmor Pro, sans-serif" }}
+        className="mb-4 text-3xl font-bold text-white"
+        
       >
         {words.map((word, index) => (
           <motion.span
