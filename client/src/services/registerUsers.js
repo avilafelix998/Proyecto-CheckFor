@@ -2,12 +2,12 @@ export const registerUsers = async (e)=>{
     
     e.preventDefault()
 
-    const name = document.getElementById("name").value.trim()
+    const username = document.getElementById("name").value.trim()
     const email = document.getElementById("email").value.trim()
     const password = document.getElementById("password").value
     const passwordRepeat = document.getElementById("password-repeat").value
 
-    if (!name || !email || !password || !passwordRepeat) {
+    if (!username || !email || !password || !passwordRepeat) {
         return alert("todos los campos deben ser completados")
     }
     if (passwordRepeat !== password) {
@@ -17,7 +17,7 @@ export const registerUsers = async (e)=>{
     try {
         const response = await fetch("http://localhost:3000/register",{
             method: "POST",
-            body: JSON.stringify({nombre_usuario:name,email,password}),
+            body: JSON.stringify({username,email,password}),
             headers:{
                 "Content-type":"application/json"
             }

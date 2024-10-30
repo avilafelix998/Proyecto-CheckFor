@@ -29,7 +29,7 @@ export const Navbar = () => {
 
           <ul className="flex items-center space-x-4">
             <li className="relative text-white cursor-pointer group">
-              <Link to="/">Home</Link> {/* Botón Home */}
+              <Link to="/">Inicio</Link> {/* Botón Home */}
               <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all origin-left duration-300"></span>
             </li>
             <li className="relative text-white cursor-pointer group">
@@ -81,7 +81,6 @@ export const Navbar = () => {
             </div>
           </div>
         </div>
-
       </nav>
 
       {/* Mobile menu */}

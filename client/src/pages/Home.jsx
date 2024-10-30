@@ -103,9 +103,9 @@ export const Home = () => {
         <div className="absolute inset-0 bg-black opacity-30 backdrop-blur-md" />
         <div className="absolute inset-0 flex items-center justify-center">
         <motion.img
-            src={LogoBanner} // Ruta de tu imagen
+            src={LogoBanner} // Ruta de imagen
             alt="Logo"
-            className="w-[30em] h-auto" // Ajusta el tamaño según lo necesites
+            className="w-[30em] h-auto" // Ajusta el tamaño
             initial={{ opacity: 0, scale: 0.8 }} // Inicialmente invisible y más pequeño
             animate={{ opacity: 1, scale: 1 }} // Al final, completamente visible y en tamaño normal
             transition={{ duration: 1.5 }} // Duración de la animación
@@ -162,17 +162,17 @@ export const Home = () => {
         <motion.h2
           className="mb-4 ml-3 text-3xl text-left text-orange-600"
           style={{ fontFamily: "Kdam Thmor Pro, sans-serif" }}
-          initial={{ x: "-100%", opacity: 0 }} // Inicia desde la izquierda y opaco
-          animate={controls} // Usa los controles de animación
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }} // Suaviza la animación
+          initial={{ x: "-100%", opacity: 0 }}
+          animate={controls}
+          transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}
         >
           CheckFor
         </motion.h2>
         <motion.p
           className="ml-3 text-lg text-left transform -translate-x-0"
-          initial={{ x: "-100%", opacity: 0 }} // Inicia desde la izquierda y opaco
-          animate={controls} // Usa los controles de animación
-          transition={{ duration: 1.05, ease: "easeInOut", delay: 0.5 }} // Suaviza la animación
+          initial={{ x: "-100%", opacity: 0 }}
+          animate={controls} 
+          transition={{ duration: 1.05, ease: "easeInOut", delay: 0.5 }}
         >
           Una plataforma diseñada para ayudar a líderes de 3 sectores a mantener
           la seguridad en el entorno laboral. Facilita la evaluación de riesgos
@@ -186,9 +186,9 @@ export const Home = () => {
         {/* Cards */}
         <motion.div
           id="example-section" // Identificador único para el Example
-          initial={{ x: "100%", opacity: 0 }} // Inicia desde la derecha y opaco
+          initial={{ x: "100%", opacity: 0 }}
           animate={exampleControls} // Usa los controles de animación del Example
-          transition={{ duration: 1.05, ease: "easeInOut", delay: 0.5 }} // Suaviza la animación
+          transition={{ duration: 1.05, ease: "easeInOut", delay: 0.5 }}
         >
           <Example />
         </motion.div>

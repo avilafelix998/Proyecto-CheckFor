@@ -3,11 +3,11 @@ import jwt from "jsonwebtoken"
 
 
 export const registerUsersCtrl = async (req, res)=>{
-    const {nombre_usuario,email,password} = req.body
+    const {username,email,password} = req.body
     try {
         const conection = await conexion ()
-        conection.query("INSERT INTO `usuarios`(`nombre_usuario`, `email`,`password`) VALUES (?,?,?)",
-        [nombre_usuario, email, password, ])
+        conection.query("INSERT INTO `usuarios`(`username`, `email`,`password`) VALUES (?,?,?)",
+        [username, email, password, ])
         conection.end()
 
         res.status(200).json({message:"Usuario Registrado"})
