@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import img1 from "../public/img/img1.jpg";
 import img2 from "../public/img/img2.jpg";
 import img3 from "../public/img/img3.jpg";
-import img4 from "../public/img/img6.jpg";
+import img4 from "../public/img/img4.jpg";
 
 const items = [
   {
@@ -24,10 +24,10 @@ const items = [
   },
   {
     imgSrc: img3,
-    title: "SEGURIDAD EN INSTITUCIONES EDUCATIVAS",
-    type: "PROTEGIENDO A NUESTROS ESTUDIANTES",
+    title: "SEGURIDAD EN INSTITUCIONES",
+    type: "CUIDANDO A LOS ESTUDIANTES",
     description:
-      "La seguridad en las instituciones educativas es vital. Medidas como simulacros de evacuación, protocolos de emergencia y la promoción de un ambiente seguro contribuyen a la protección de estudiantes y personal. Fomentar la higiene a través de la limpieza regular y el acceso a materiales de higiene personal es igualmente importante.",
+      "La seguridad en las instituciones es vital. Medidas como simulacros de evacuación, protocolos de emergencia y la promoción de un ambiente seguro contribuyen a la protección de estudiantes y personal. Fomentar la higiene a través de la limpieza regular y el acceso a materiales de higiene personal es igualmente importante.",
   },
   {
     imgSrc: img4,
@@ -113,7 +113,7 @@ export const Slider = () => {
                 animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                 exit={{ y: -100, opacity: 0, filter: "blur(20px)" }}
                 transition={{ duration: 0.5 }}
-                className="absolute w-1/2 text-left text-white transform -translate-x-0 content top-1/4 left-10 h-1/2"
+                className="absolute w-1/2 text-left text-white transform -translate-x-0 content md:top-20 top-16 left-10 h-1/2"
               >
                 <motion.div
                   initial={{ y: 20, opacity: 0, filter: "blur(20px)" }}
@@ -129,7 +129,7 @@ export const Slider = () => {
                   animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                   exit={{ y: 20, opacity: 0, filter: "blur(20px)" }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="text-2xl text-orange-600 type"
+                  className="text-3xl font-bold text-orange-600 md:font-normal type"
                 >
                   {items[currentIndex].type}
                 </motion.div>
@@ -138,7 +138,7 @@ export const Slider = () => {
                   animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                   exit={{ y: 20, opacity: 0, filter: "blur(20px)" }}
                   transition={{ duration: 0.5, delay: 0.6 }}
-                  className="hidden mt-4 description md:block" // hidden en pantallas móviles
+                  className="hidden mt-4 text-xl description md:block" // hidden en pantallas móviles
                 >
                   {items[currentIndex].description}
                 </motion.div>

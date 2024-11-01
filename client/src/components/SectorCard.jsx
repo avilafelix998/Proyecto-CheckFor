@@ -1,7 +1,7 @@
 import React from 'react';
-import Bg1 from '../public/img/Bg4.png';
-import Bg2 from '../public/img/Bg10.png';
-import Bg3 from '../public/img/Bg11.png';
+import Bg1 from '../public/img/BgSec1.png';
+import Bg2 from '../public/img/BgSec2.png';
+import Bg3 from '../public/img/BgSec3.png';
 
 const Card = ({ title, text, image }) => {
   return (

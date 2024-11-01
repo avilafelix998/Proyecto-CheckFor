@@ -8,7 +8,7 @@ import { Footer } from "../components/Footer.jsx";
 //Iconos
 import { FaCircleUser } from "react-icons/fa6";
 import { FaWpforms, FaChartBar, FaChartPie, FaTasks, FaTrash, FaCheckCircle } from "react-icons/fa";
-import { MdCategory, MdDashboard } from "react-icons/md";
+import { MdCategory, MdDashboard, MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { BsClipboardCheckFill } from "react-icons/bs";
 
 // Imágenes
@@ -31,9 +31,9 @@ export const Help = () => {
 
 
   return (
- 
-    <div className="bg-gradient-to-b from-black via-zinc-950 to-gray-950">
- 
+
+    <div className="overflow-hidden md:overflow-visible">
+
           {isToken ? <Navbar /> : <NavbarNotSession />}
               
       <TextParallaxContent
@@ -75,7 +75,7 @@ const IMG_PADDING = 12;
 const TextParallaxContent = ({ imgUrl, subheading, heading, helpContent }) => {
   return (
     <div style={{ paddingLeft: IMG_PADDING, paddingRight: IMG_PADDING }}>
-      <div className="relative h-[150vh] mt-2">
+      <div className="relative h-[100vh] md:h-[150vh] mt-2">
         <StickyImage imgUrl={imgUrl} />
         <OverlayCopy heading={heading} subheading={subheading} />
       </div>
@@ -140,6 +140,20 @@ const OverlayCopy = ({ subheading, heading }) => {
         {subheading}
       </p>
       <p className="text-4xl font-bold text-center md:text-6xl">{heading}</p>
+      <motion.div
+        animate={{
+          y: [0, -10, 0], // Movimiento hacia arriba y abajo
+        }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          repeatType: "mirror", // Rebote en ambos sentidos
+          ease: "easeInOut",
+        }}
+        className="text-5xl mt-7 md:text-7xl"
+      >
+        <MdKeyboardDoubleArrowDown />
+      </motion.div>
     </motion.div>
   );
 };
@@ -150,7 +164,7 @@ const AnimatedHelpContent = ({ children }) => {
       initial={{ x: 48, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 1.05 }}
-      className="max-w-5xl px-4 pt-12 pb-20 mx-auto"
+      className="max-w-5xl px-4 pt-10 pb-20 mx-auto"
     >
       {children}
     </motion.div>

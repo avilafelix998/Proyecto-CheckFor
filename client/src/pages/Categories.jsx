@@ -94,9 +94,9 @@ export const Categories = () => {
             href={`/test?${category.id_categoria}`} 
             key={category.id_categoria} 
             className="flex w-full p-4 sm:w-1/2 md:w-1/3"
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: Math.floor(index / 3) * 0.2 + 0.5 }}
+            initial={{ opacity: 0, scale: 0.8 }} // Inicialmente invisible y más pequeño
+            animate={{ opacity: 1, scale: 1 }} // Al final, completamente visible y en tamaño normal
+            transition={{ delay: Math.floor(index / 3) * 0.3 + 0.5}}
           >
             {/* Div contenedor */}
             <motion.div 
