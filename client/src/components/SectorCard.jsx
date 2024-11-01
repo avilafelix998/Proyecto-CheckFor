@@ -25,7 +25,7 @@ const Card = ({ title, text, image }) => {
   );
 };
 
-export const Example = () => {
+export const SectorCard = () => {
   const cards = [
     {
       image: Bg1,
