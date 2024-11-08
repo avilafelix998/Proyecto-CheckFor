@@ -57,8 +57,6 @@ export const checkAuthCtrl = (req, res) => {
     res.status(200).json({ user: req.user });
     console.log(req.user);
   };
-
-
   
   export const logoutUserCtrl = (req, res) => {
     // Elimina la cookie llamada 'token'

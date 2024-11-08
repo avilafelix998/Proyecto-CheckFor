@@ -31,3 +31,24 @@ export const obtenerCategorias = async (req, res) => {
     res.status(500).json({msg: "Error interno del servidor"})
   }
 };
+
+
+export const obtenerSubcategorias =  async (req, res) => {
+  try {
+
+  const connection = await conexion()
+  const [subcategorias] = await connection.query( "SELECT * FROM subcategorias" )
+
+  if(subcategorias.length === 0){
+    res.status(404).json({msg: "Subcategorias no encontradas."})
+  }
+  console.log(subcategorias);
+  res.json(subcategorias)
+} catch (error) {
+
+  console.log(error);
+  res.status(500).json({msg: "Error interno del servidor"})
+
+}
+};
+
