@@ -4,7 +4,7 @@ export const conexion = async () => {
     const connection = await createConnection({
       host: "localhost",
       user: "root",
-      password: "",
+      password: "1234",
       database: "checkfor",
     });
     await connection.connect();

@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Questions } from '../components/Questions.jsx';
 import { Navbar } from '../components/Navbar.jsx';
-import { CounterProvider } from '../context/RespuestasProvider.jsx';
 
 
 export const TestPage = () => {
@@ -15,10 +14,8 @@ export const TestPage = () => {
     <div className="py-9 ">
       <Navbar/>
       <h1 className="text-2xl font-bold mb-4 text-center bg-black text-orange-600">Preguntas de la Categoría</h1>
-      <CounterProvider>
 
       <Questions categoryId={id} className="mx-10" />
-      </CounterProvider>
     </div>
   );
 };

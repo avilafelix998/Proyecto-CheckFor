@@ -1,28 +1,17 @@
 import { useState,useEffect,useContext } from "react"
-import {useCounterContext} from "../context/RespuestasProvider.jsx"
 
 export default function Hola({props}){
-    const {incrementar , decrementar, counter} = useCounterContext()
-    console.log(counter);
+  const [response, setResponse] = useState(0)
     const handleResponse = (num) =>{
-        setOption(num)
+        setResponse(num)
     }
     const {descripcion, id_categoria, id_pregunta, id_subcategoria_FK} = props
     return (<li key={id_pregunta} className={` mx-10 p-2 border rounded shadow bg-gray-200 flex justify-between items-center`}>
             <span>{descripcion}</span>
             <div>
-              <button 
-                onClick={incrementar}
-                className={`bg-green-500 text-white px-2 py-1 rounded mr-2 `}
-              >
-                ✓
-              </button>
-              <button 
-                className={`bg-red-500 text-white px-2 py-1 rounded`}
-                onClick={()=>console.log(counter)}
-              >
-                X
-              </button>
+              <input type="hidden" value={response} name={id_pregunta} /> {/*Vos no le des bola*/}
+              <input type="button" value="Chi" onClick={()=>setResponse(1)} className={`${(response == 1) ? "opacity-100" : "opacity-50"}  rounded-lg bg-green-500`} />
+              <input type="button" value="Ño" onClick={()=>setResponse(0)} className={`${(response == 0) ? "opacity-100" : "opacity-50"}  rounded-lg bg-red-500`} />
             </div>
           </li>)
 }
