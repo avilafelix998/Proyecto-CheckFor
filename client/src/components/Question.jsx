@@ -10,8 +10,8 @@ export default function Hola({props}){
             <span>{descripcion}</span>
             <div>
               <input type="hidden" value={response} name={id_pregunta} /> {/*Vos no le des bola*/}
-              <input type="button" value="Chi" onClick={()=>setResponse(1)} className={`${(response == 1) ? "opacity-100" : "opacity-50"}  rounded-lg bg-green-500`} />
-              <input type="button" value="Ño" onClick={()=>setResponse(0)} className={`${(response == 0) ? "opacity-100" : "opacity-50"}  rounded-lg bg-red-500`} />
+              <input type="button" value="si" onClick={()=>setResponse(1)} className={`${(response == 1) ? "opacity-100" : "opacity-50"}  rounded-lg bg-green-500`} />
+              <input type="button" value="no" onClick={()=>setResponse(0)} className={`${(response == 0) ? "opacity-100" : "opacity-50"}  rounded-lg bg-red-500`} />
             </div>
           </li>)
 }
