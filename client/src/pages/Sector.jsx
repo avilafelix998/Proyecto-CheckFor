@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import { Footer } from "../components/Footer.jsx"; 
 
 //Imágenes
-import Bg4 from '../public/img/Bg4.png';
-import Bg5 from '../public/img/Bg10.png';
-import Bg6 from '../public/img/Bg11.png';
+import Bg4 from '../public/img/BgSec1.png';
+import Bg5 from '../public/img/BgSec2.png';
+import Bg6 from '../public/img/BgSec3.png';
 
 export const Sector = () => {
     return (
@@ -22,7 +22,7 @@ export const Sector = () => {
           description="Este sector se enfoca en las medidas de seguridad, y normativas específicas que deben cumplirse en el sitio de construcción. Asegúrate de evaluar los riesgos para proteger a tus trabajadores."
           bgColor="bg-orange-400"
           hoverBgColor="bg-orange-500"
-          hoverBtn="bg-orange-400"
+          hoverBtn="hover:bg-orange-400"
           imgSrc={Bg4}
           linkTo="/categories"
           delay={0}
@@ -33,7 +33,7 @@ export const Sector = () => {
           description="Este sector se enfoca en las prácticas de seguridad y salud en entornos industriales. Responde a las preguntas para asegurar un ambiente de trabajo seguro y cumplir con las regulaciones."
           bgColor="bg-gray-400"
           hoverBgColor="bg-gray-500"
-          hoverBtn="bg-gray-400"
+          hoverBtn="hover:bg-gray-400"
           imgSrc={Bg5}
           //linkTo="/"
           delay={0.2}
@@ -44,7 +44,7 @@ export const Sector = () => {
           description="Este sector se enfoca en la seguridad y salud en instituciones educativas. Asegúrate de evaluar el bienestar de estudiantes y personal educativo."
           bgColor="bg-green-400"
           hoverBgColor="bg-green-500"
-          hoverBtn="bg-green-400"
+          hoverBtn="hover:bg-green-400"
           imgSrc={Bg6}
           //linkTo="/"
           delay={0.4}
@@ -75,7 +75,7 @@ const SectorSection = ({ title, description, bgColor, hoverBgColor, hoverBtn, im
       </p>
       <Link to={linkTo}>
         <button
-          className={`relative w-28 p-2 rounded-[50px] mt-4 ml-12 font-semibold border-2 border-black text-black duration-300 hover:bg-opacity-75 group-hover:border-white group-hover:text-white hover:${hoverBtn}`} 
+          className={`relative w-28 p-2 rounded-[50px] mt-4 ml-12 font-semibold border-2 border-black text-black duration-300 hover:bg-opacity-75 group-hover:border-white group-hover:text-white ${hoverBtn}`} 
         >
           Ingresar
         </button>

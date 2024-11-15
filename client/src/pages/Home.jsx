@@ -1,31 +1,23 @@
 import React, { useEffect, useState } from "react";
+
+import { Banner } from "../components/Banner.jsx";
+import { Marquee } from "../components/Marquee.jsx";
 import { Slider } from "../components/Slider";
-import Banner from "../public/img/Banner1.jpg";
-import LogoBanner from "../public/img/Logo3.png"
-import { motion, useAnimation } from "framer-motion";
-import { Example } from "../components/SectorCard.jsx";
+import { Overview } from "../components/Overview.jsx";
+import { Welcome } from "../components/Welcome.jsx";
 import { RegSection } from "../components/Regulation.jsx";
 import { AboutUs } from "../components/AboutUs.jsx";
+import { Footer } from "../components/Footer.jsx"; 
 
 import { Navbar } from "../components/Navbar.jsx";
 import { NavbarNotSession } from "../components/NavbarNotSession.jsx";
 import { verifyJWT } from "../services/verifyJWT.js";
 
-import { Footer } from "../components/Footer.jsx"; 
-
-const messages = [
-  "La seguridad es responsabilidad de todos. ¡Construyamos un entorno seguro!",
-  "Realiza revisiones periódicas de equipo y maquinarias",
-  "Asegúrate que todos los trabajadores usen sus EPP",
-  "El 70% de los accidentes laborales se pueden prevenir",
-];
 
 export const Home = () => {
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const controls = useAnimation();
-  const exampleControls = useAnimation(); // Controles para el Example
+  
   const [isToken, setToken] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     verifyJWT()
@@ -35,170 +27,28 @@ export const Home = () => {
       })
   }, [])
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % messages.length);
-    }, 10000); // Cambiar texto cada 10 segundos
-    return () => clearInterval(interval);
-  }, []);
+return (
+  <>
+      {isToken ? <Navbar /> : <NavbarNotSession />}
 
-  // Lógica para los otros elementos
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          controls.start({ x: 0, opacity: 1 });
-        } else {
-          controls.start({ x: "-100%", opacity: 0 }); // Elementos salen por la izquierda
-        }
-      });
-    });
+      <div className="overflow-hidden bg-slate-300">
+          <Banner />
+          <Marquee />
 
-    const section = document.getElementById("overview-section");
-    if (section) {
-      observer.observe(section);
-    }
+          <div>
+              <Slider />
+          </div>
 
-    return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
-    };
-  }, [controls]);
+          <div className="px-4 py-8 text-white bg-gradient-to-b from-black to-gray-900">
+              <Overview />
+          </div>
+          
+          <Welcome />
 
-  // Lógica para el Example
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          exampleControls.start({ x: 0, opacity: 1 });
-        } else {
-          exampleControls.start({ x: "100%", opacity: 0 }); // Example sale por la derecha
-        }
-      });
-    });
-
-    const exampleSection = document.getElementById("example-section");
-    if (exampleSection) {
-      observer.observe(exampleSection);
-    }
-
-    return () => {
-      if (exampleSection) {
-        observer.unobserve(exampleSection);
-      }
-    };
-  }, [exampleControls]);
-
-
-
-  return (
-    <>
-        {isToken ? <Navbar /> : <NavbarNotSession />}
-
-    <div className="overflow-hidden bg-slate-300">
-      {/* Banner con capa de blur y logo */}
-      <div className="relative w-full h-64">
-        <img src={Banner} alt="Banner" className="object-cover w-full h-full" />
-        <div className="absolute inset-0 bg-black opacity-30 backdrop-blur-md" />
-        <div className="absolute inset-0 flex items-center justify-center">
-        <motion.img
-            src={LogoBanner} // Ruta de imagen
-            alt="Logo"
-            className="w-[30em] h-auto" // Ajusta el tamaño
-            initial={{ opacity: 0, scale: 0.8 }} // Inicialmente invisible y más pequeño
-            animate={{ opacity: 1, scale: 1 }} // Al final, completamente visible y en tamaño normal
-            transition={{ duration: 1.5 }} // Duración de la animación
-          />
-        </div>
+          <RegSection />
+          <AboutUs />
+          <Footer />
       </div>
-
-      {/* Divisor con efecto marquee y máscara de desvanecimiento */}
-      <div className="py-4 overflow-hidden text-center text-white bg-black">
-        <div
-          className="relative mx-auto"
-          style={{
-            width: "50%",
-            overflow: "hidden",
-            userSelect: "none",
-            maskImage:
-              "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0))",
-          }}
-        >
-          <motion.div
-            key={currentIndex}
-            className="whitespace-nowrap"
-            initial={{ x: "70%", opacity: 1 }} // Desde dónde inicia
-            animate={{ x: "-90%", opacity: 1 }} // Mueve hacia la izquierda
-            exit={{ x: "50%", opacity: 1 }} // Hasta dónde llega
-            transition={{
-              duration: 10, // Duración del movimiento
-              ease: "linear",
-            }}
-          >
-            <p className="text-md">{messages[currentIndex]}</p>
-          </motion.div>
-        </div>
-      </div>
-
-      <div>
-        <Slider />
-      </div>
-
-      {/* Div de texto */}
-      <div
-        id="overview-section"
-        className="px-4 py-8 text-white bg-gradient-to-b from-black to-gray-900"
-      >
-        <motion.h1
-          className="mb-4 ml-3 text-4xl font-bold text-left"
-          initial={{ x: "-100%", opacity: 0 }} // Inicia desde la izquierda y opaco
-          animate={controls} // Usa los controles de animación
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }} // Suaviza la animación
-        >
-          VISIÓN GENERAL
-          <hr className="mt-3 border-t-2 border-gray-300 rounded-lg w-80"></hr>
-        </motion.h1>
-        <motion.h2
-          className="mb-4 ml-3 text-3xl text-left text-orange-600"
-          style={{ fontFamily: "Kdam Thmor Pro, sans-serif" }}
-          initial={{ x: "-100%", opacity: 0 }}
-          animate={controls}
-          transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}
-        >
-          CheckFor
-        </motion.h2>
-        <motion.p
-          className="ml-3 text-lg text-left transform -translate-x-0"
-          initial={{ x: "-100%", opacity: 0 }}
-          animate={controls} 
-          transition={{ duration: 1.05, ease: "easeInOut", delay: 0.5 }}
-        >
-          Una plataforma diseñada para ayudar a líderes de 3 sectores a mantener
-          la seguridad en el entorno laboral. Facilita la evaluación de riesgos
-          y asegura que los equipos, procesos, personal y maquinaria estén
-          preparados para cumplir con los más altos estándares de seguridad,
-          permitiendo una gestión eficiente y proactiva de las normativas. Con
-          herramientas intuitivas y análisis en tiempo real, estar preparado
-          ante cualquier auditoría nunca ha sido tan simple.
-        </motion.p>
-
-        {/* Cards */}
-        <motion.div
-          id="example-section" // Identificador único para el Example
-          initial={{ x: "100%", opacity: 0 }}
-          animate={exampleControls} // Usa los controles de animación del Example
-          transition={{ duration: 1.05, ease: "easeInOut", delay: 0.5 }}
-        >
-          <Example />
-        </motion.div>
-      </div>
-
-      <RegSection />
-      <AboutUs />
-      <Footer />
-
-    </div>
-    </>
-  );
+  </>
+);
 };

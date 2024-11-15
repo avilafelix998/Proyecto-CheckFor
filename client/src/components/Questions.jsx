@@ -16,23 +16,6 @@ const getQuestions = async (categoryId, setQuestions) => {
   }
 };
 
-// const sendResponse = async (questionId, response) => {
-//   try {
-//     const responseToSend = await fetch(`http://localhost:3000/responses`, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({ questionId, response }),
-//     });
-//     if (!responseToSend.ok) {
-//       throw new Error('Error sending response');
-//     }
-//     console.log('Response sent:', response);
-//   } catch (error) {
-//     console.error('Error sending response:', error);
-//   }
-// };
 
 export const Questions = ({ categoryId }) => {
   const [category, setCategory] = useState()
@@ -66,14 +49,7 @@ useEffect(()=>{
 }
 
 ,[category])
-  // const handleResponse = (questionId, response) => {
-  //   sendResponse(questionId, response);
-  //   setQuestions(prevQuestions =>
-  //     prevQuestions.map(q => 
-  //       q.id_pregunta === questionId ? { ...q, selectedResponse: response } : { ...q, selectedResponse: null }
-  //     )
-  //   );
-  // };
+
   return ( 
 
     <div>
