@@ -150,7 +150,7 @@ const OverlayCopy = ({ subheading, heading }) => {
           repeatType: "mirror", // Rebote en ambos sentidos
           ease: "easeInOut",
         }}
-        className="text-5xl mt-7 md:text-7xl"
+        className="mt-5 text-5xl md:text-7xl"
       >
         <MdKeyboardDoubleArrowDown />
       </motion.div>
@@ -225,7 +225,7 @@ const HelpContent2 = () => (
 const HelpContent3 = () => (
   <AnimatedHelpContent>
     <h2 className="mb-8 text-3xl font-bold text-gray-400">
-      Ayuda para el Análisis de Datos
+      Ayuda para el análisis de datos
     </h2>
     <div className="space-y-8">
       <div className="flex items-start">

@@ -4,6 +4,7 @@ import { Banner } from "../components/Banner.jsx";
 import { Marquee } from "../components/Marquee.jsx";
 import { Slider } from "../components/Slider";
 import { Overview } from "../components/Overview.jsx";
+import { Welcome } from "../components/Welcome.jsx";
 import { RegSection } from "../components/Regulation.jsx";
 import { AboutUs } from "../components/AboutUs.jsx";
 import { Footer } from "../components/Footer.jsx"; 
@@ -16,6 +17,7 @@ import { verifyJWT } from "../services/verifyJWT.js";
 export const Home = () => {
   
   const [isToken, setToken] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     verifyJWT()
@@ -40,6 +42,8 @@ return (
           <div className="px-4 py-8 text-white bg-gradient-to-b from-black to-gray-900">
               <Overview />
           </div>
+          
+          <Welcome />
 
           <RegSection />
           <AboutUs />

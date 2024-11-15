@@ -34,8 +34,12 @@ export const Categories = () => {
       });
       const categories = await response.json();
   
+      if (Array.isArray(categories)) {
       console.log(categories);
       setCategories(categories);
+    } else {
+      console.error('Data is not an array');
+    }
     } catch (error) {
       console.error('Error fetching categories:', error);
     }

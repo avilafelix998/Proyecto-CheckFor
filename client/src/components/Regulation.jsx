@@ -40,12 +40,12 @@ const CenterImage = () => {
 
   const backgroundSize = useTransform(
     scrollY,
-    [0, SECTION_HEIGHT + 500],
+    [0, SECTION_HEIGHT + 900],
     ["170%", "100%"]
   );
   const opacity = useTransform(
     scrollY,
-    [SECTION_HEIGHT, SECTION_HEIGHT + 500],
+    [SECTION_HEIGHT, SECTION_HEIGHT + 900],
     [1, 0]
   );
 
