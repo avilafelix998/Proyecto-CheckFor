@@ -7,7 +7,8 @@ import { Overview } from "../components/Overview.jsx";
 import { Welcome } from "../components/Welcome.jsx";
 import { RegSection } from "../components/Regulation.jsx";
 import { AboutUs } from "../components/AboutUs.jsx";
-import { Footer } from "../components/Footer.jsx"; 
+import { Footer } from "../components/Footer.jsx";
+import { SpringModal } from "../components/Modal.jsx";
 
 import { Navbar } from "../components/Navbar.jsx";
 import { NavbarNotSession } from "../components/NavbarNotSession.jsx";
@@ -17,7 +18,7 @@ import { verifyJWT } from "../services/verifyJWT.js";
 export const Home = () => {
   
   const [isToken, setToken] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [isModalOpen, setModalOpen] = useState(false); // Estado del modal
 
   useEffect(() => {
     verifyJWT()
@@ -29,9 +30,10 @@ export const Home = () => {
 
 return (
   <>
-      {isToken ? <Navbar /> : <NavbarNotSession />}
+      {isToken ? <Navbar setIsModalOpen={setModalOpen}/> : <NavbarNotSession />}
 
       <div className="overflow-hidden bg-slate-300">
+          <SpringModal isOpen={isModalOpen} setIsOpen={setModalOpen}/>
           <Banner />
           <Marquee />
 

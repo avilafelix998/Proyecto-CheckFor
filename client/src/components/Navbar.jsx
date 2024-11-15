@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { logoutUsers } from "../services/logoutUsers";
 import LogoDark from "../public/img/Logo2.png";
 
-export const Navbar = () => {
+export const Navbar = ({ setIsModalOpen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -55,17 +54,14 @@ export const Navbar = () => {
         <div className="absolute top-0 right-0 flex items-center h-16 bg-orange-600 w-72 md:w-80"
         style={{ clipPath: "polygon(42% 0, 100% 0, 100% 100%, 30% 100%)" }}>
           <div className="flex items-center justify-end w-full mr-6">
-            {/* Mostrar botones solo en pantallas grandes */}
-            <div className="hidden md:flex">
-              <Link to="/login">
-                <button 
-                className="px-2 py-1 mr-5 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
-                onClick={logoutUsers}
-                >
-                  cerrar sesión
-                </button>
-              </Link>
-            </div>
+          <div className="hidden md:flex">
+            <button
+              className="px-2 py-1 mr-5 font-semibold text-orange-500 bg-white rounded hover:bg-gray-100"
+              onClick={() => setIsModalOpen(true)}
+            >
+              Cerrar sesión
+            </button>
+          </div>
             {/* Botón hamburguesa para móviles */}
             <div className="mr-14 md:hidden">
               <button
