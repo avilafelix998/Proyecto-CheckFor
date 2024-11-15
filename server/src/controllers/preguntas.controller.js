@@ -51,11 +51,12 @@ export const obtenerSubcategorias =  async (req, res) => {
 
 export const guardarRespuestas = async (req,res) =>{
   const respuestas = req.body
+  console.log(respuestas)
   try{
     
     const connection = await conexion()
     const sql = "INSERT INTO `respuestas`(`id_pregunta_FK`,`respuesta`,`id_usuario_FK`) VALUES (?,?,?)"
-    Object.entries(respuestas).map(([key, value]) => connection.query(sql,[key,value,1]));
+    Object.entries(respuestas).map(([key, value]) => connection.query(sql,[key,value,req.user.id]));
     const peticion = await connection.query( "SELECT * FROM subcategorias" )
     res.json(peticion)
 

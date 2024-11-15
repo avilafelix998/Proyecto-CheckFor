@@ -5,13 +5,26 @@ export default function Hola({props}){
     const handleResponse = (num) =>{
         setResponse(num)
     }
-    const {descripcion, id_categoria, id_pregunta, id_subcategoria_FK} = props
+    const {descripcion, id_categoria, id_pregunta, id_subcategoria_FK, id_boton_FK} = props
     return (<li key={id_pregunta} className={` mx-10 p-2 border rounded shadow bg-gray-200 flex justify-between items-center`}>
             <span>{descripcion}</span>
-            <div>
+            {
+              !(id_boton_FK == 2) ? 
+              <div>
               <input type="hidden" value={response} name={id_pregunta} /> {/*Vos no le des bola*/}
               <input type="button" value="si" onClick={()=>setResponse(1)} className={`${(response == 1) ? "opacity-100" : "opacity-50"}  rounded-lg bg-green-500`} />
               <input type="button" value="no" onClick={()=>setResponse(0)} className={`${(response == 0) ? "opacity-100" : "opacity-50"}  rounded-lg bg-red-500`} />
+            </div> : 
+            <div>
+              <select name={id_pregunta} id="boton" onChange={(e)=>{
+                handleResponse(e.target.value)
+              }}>
+                <option value="3" >Bajo</option>
+                <option value="4">Medio</option>
+                <option value="5">Alto</option>
+              </select>
             </div>
+            }
+            
           </li>)
 }

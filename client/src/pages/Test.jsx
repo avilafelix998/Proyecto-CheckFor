@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Questions } from '../components/Questions.jsx';
 import { Navbar } from '../components/Navbar.jsx';
+import { BackgroundCellAnimation } from '../components/BgCell.jsx';
 
 
 export const TestPage = () => {
@@ -11,9 +12,9 @@ export const TestPage = () => {
   return (
     
 
-    <div className="py-9 ">
+    <div className="flex flex-col min-h-screen">
       <Navbar/>
-      <h1 className="text-2xl font-bold mb-4 text-center bg-black text-orange-600">Preguntas de la Categoría</h1>
+      <BackgroundCellAnimation text="COMPLETE LA CATEGORÍA" />
 
       <Questions categoryId={id} className="mx-10" />
     </div>
