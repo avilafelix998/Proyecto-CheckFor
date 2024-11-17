@@ -1,8 +1,8 @@
-// Questions.js
-import React, { useEffect, useState, useContext, createContext, useReducer } from 'react';
-import { Navbar } from './Navbar';
+import React, { useEffect, useState } from 'react';
 import Question from './Question';
 import sendResponses from '../services/sendResponses';
+import { motion, AnimatePresence } from "framer-motion";
+
 
 const getQuestions = async (categoryId, setQuestions) => {
   try {
@@ -52,31 +52,67 @@ useEffect(()=>{
 
   return ( 
 
-    <div>
-      <h1 className='ml-8 text-white'>{name}</h1> 
-      <button onClick={()=>(category + 1 == max)? window.location.href = `/categories`: setCategory(category + 1)} className='px-2 py-1 mb-4 ml-8 font-semibold text-white bg-orange-600 rounded hover:bg-orange-500' > siguiente</button>
-      <form action="" onSubmit={(e)=>{
-        e.preventDefault();
-        const formData = new FormData(e.target)
-        let otroForm = {}
-        formData.forEach((value,key)=>{
-          otroForm[key] = value
-        })
-        if (formData){
-          console.log('aca')
-          sendResponses(otroForm)
-        }
-      }}>
-        
-      <ul className="space-y-2">
-        {questions.map((question,index) => {
-          return question.id_subcategoria_FK == category ?
-          (
-            <Question props={question}/>
-          ) : <></>})}
-      </ul>
-          < button className='px-2 py-1 mb-4 ml-8 font-semibold text-white bg-orange-600 rounded hover:bg-orange-500' type="submit"> Subir</button>
-          </form>
-    </div>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={category} // Cambia según la categoría para activar la animación
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -50 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
+        <div>
+          <div className="relative top-6 mx-12 shadow-lg bg-orange-600 w-4/5 md:w-2/6 rounded-bl-[80px] rounded-tr-[80px]">
+            <h1
+              className="py-3 mb-2 text-center text-white"
+              style={{ fontFamily: "Kdam Thmor Pro, sans-serif" }}
+            >
+              {name}
+            </h1>
+          </div>
+          <div className="mb-10 flex items-center justify-center mx-auto max-w-7xl md:px-8 py-6 bg-gray-400/20 md:rounded-bl-[80px] md:rounded-tr-[80px]">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                let otroForm = {};
+                formData.forEach((value, key) => {
+                  otroForm[key] = value;
+                });
+                if (formData) {
+                  console.log("aca");
+                  sendResponses(otroForm);
+                }
+              }}
+            >
+              <ul className="flex flex-wrap items-center justify-center mt-6 mb-4 space-y-2 max-w-7xl">
+                {questions.map((question, index) => {
+                  return question.id_subcategoria_FK == category ? (
+                    <Question props={question} />
+                  ) : null;
+                })}
+              </ul>
+
+              <button
+                className="px-2 py-1 mb-4 ml-8 font-semibold text-orange-600 bg-white rounded hover:bg-white/90"
+                type="submit"
+              >
+                Subir
+              </button>
+
+              <button
+                onClick={() =>
+                  category + 1 == max
+                    ? (window.location.href = `/categories`)
+                    : setCategory(category + 1)
+                }
+                className="px-2 py-1 mb-4 ml-8 font-semibold text-white bg-orange-600 rounded hover:bg-orange-500"
+              >
+                Siguiente
+              </button>
+            </form>
+          </div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
-};
+}

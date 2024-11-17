@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { FiAlertCircle } from "react-icons/fi";
-import { FaArrowRightFromBracket } from "react-icons/fa6";
 import { ImExit } from "react-icons/im";
 import { logoutUsers } from "../services/logoutUsers";
 

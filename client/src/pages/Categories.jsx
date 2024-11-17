@@ -86,7 +86,7 @@ export const Categories = () => {
   ];
 
   return (
-    <div className="justify-between p-0">
+    <div className="justify-between min-h-screen p-0">
       
       <Navbar />
 
@@ -140,10 +140,7 @@ export const Categories = () => {
               </div>
 
               {/* Div de descripción */}
-              <div 
-                className="relative z-10 flex-grow w-full ml-4 text-sm duration-300 group-hover:text-white"
-                style={{ fontFamily: "Roboto, sans-serif" }}
-              >
+              <div className="relative z-10 flex-grow w-full ml-4 text-sm duration-300 group-hover:text-white">
                 <p> 
                   {categoryDescriptions[index]}
                 </p>

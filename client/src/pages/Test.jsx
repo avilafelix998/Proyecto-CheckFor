@@ -1,8 +1,8 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { Questions } from '../components/Questions.jsx';
 import { Navbar } from '../components/Navbar.jsx';
 import { BackgroundCellAnimation } from '../components/BgCell.jsx';
+import { Footer } from '../components/Footer.jsx';
 
 
 export const TestPage = () => {
@@ -17,6 +17,8 @@ export const TestPage = () => {
       <BackgroundCellAnimation text="COMPLETE LA CATEGORÍA" />
 
       <Questions categoryId={id} className="mx-10" />
+
+      <Footer />
     </div>
   );
 };
