@@ -16,9 +16,17 @@ export const LineChart = ({ data, categories, title }) => {
       tooltip: {
         trigger: 'axis',
       },
+      grid: {
+        left: '5%',
+        right: '5%',
+        top: '10%',
+        bottom: '10%',
+        containLabel: true,
+      },
       xAxis: {
         type: 'category',
         data: categories,
+        boundaryGap: false,
         axisLine: { lineStyle: { color: '#fff' } },
         axisLabel: { color: '#fff' },
       },
@@ -31,9 +39,15 @@ export const LineChart = ({ data, categories, title }) => {
         {
           data,
           type: 'line',
-          smooth: true, // Hace que la línea sea curva y suave
+          smooth: true,
           lineStyle: { color: '#f97316' },
           itemStyle: { color: '#f97316' },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: '#f97316' },
+              { offset: 1, color: 'rgba(249, 115, 22, 0)' },
+            ]),
+          },
         },
       ],
     };
