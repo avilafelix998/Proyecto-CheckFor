@@ -43,10 +43,6 @@ export const Navbar = ({ setIsModalOpen }) => {
               <Link to="/dashboard">Dashboard</Link>
               <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all origin-left duration-300"></span>
             </li>
-            <li className="relative text-white cursor-pointer group">
-              <Link to="/kanban">Tareas</Link>
-              <span className="absolute left-0 bottom-0 h-0.5 bg-white w-0 group-hover:w-full transition-all origin-left duration-300"></span>
-            </li>
           </ul>
         </div>
 

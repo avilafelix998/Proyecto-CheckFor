@@ -1,11 +1,10 @@
-import { Navbar } from '../components/Navbar.jsx';
 import { Sidebar } from '../components/Sidebar.jsx';
-import { Outlet } from 'react-router-dom'; // Esto te permitirá renderizar las rutas anidadas
+import { Outlet } from 'react-router-dom'; // Esto permite renderizar las rutas anidadas
 
 export const Dashboard = () => {
   return (
     <div className="flex min-h-screen">
-      <Sidebar /> {/* Sidebar permanece fija */}
+      <Sidebar />
       
       <div className="flex-1">
         

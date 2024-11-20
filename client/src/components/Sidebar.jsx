@@ -61,7 +61,7 @@ export const Sidebar = () => {
           selected={selected}
           setSelected={setSelected}
           open={open}
-          //link="/dashboard/tasks"
+          link="/dashboard/tasks"
         />
         <Option
           Icon={FaUserCog}
